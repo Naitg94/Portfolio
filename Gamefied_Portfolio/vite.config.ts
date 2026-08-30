@@ -266,7 +266,7 @@ function generateContextualActions(
     combinedText.includes('cv')
   ) {
     actions.push({
-      label: 'DOWNLOAD RESUME',
+      label: 'DOWNLOAD RESUME (PDF)',
       actionType: 'resume',
       url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl,
     });

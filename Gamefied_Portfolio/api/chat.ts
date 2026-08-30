@@ -187,7 +187,7 @@ function generateContextualActions(combinedText: string) {
     actions.push({ label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.contact.github });
   }
   if (combinedText.includes('resume') || combinedText.includes('cv')) {
-    actions.push({ label: 'DOWNLOAD RESUME', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl });
+    actions.push({ label: 'DOWNLOAD RESUME (PDF)', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl });
   }
   if (combinedText.includes('revora')) {
     actions.push({ label: 'REVORA (GITHUB)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl });

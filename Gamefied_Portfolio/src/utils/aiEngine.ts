@@ -378,7 +378,7 @@ He is in his 2nd Semester studying B.Tech in Computer Science Engineering (AI/ML
       actions: [
         { label: 'REVORA ON GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
         { label: 'SEND EMAIL', actionType: 'email', url: `mailto:${PORTFOLIO_KNOWLEDGE.contact.email}` },
-        { label: 'DOWNLOAD RESUME', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl },
+        { label: 'DOWNLOAD RESUME (PDF)', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl },
       ],
     };
   }
