@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Trophy, Award, Gamepad2, Briefcase, CheckCircle, Sparkles } from 'lucide-react';
+import { Trophy, Award, Gamepad2, Briefcase, Sparkles } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { ACHIEVEMENTS } from '../data/portfolioData';
 import type { Achievement } from '../data/portfolioData';
@@ -32,6 +32,31 @@ export const AchievementVault: React.FC = () => {
     }
   };
 
+  const getCategoryBadge = (achievement: Achievement) => {
+    if (achievement.id === 'internshala-fullstack' || achievement.type === 'CERTIFICATION') {
+      return (
+        <span className="px-2.5 py-1 rounded-full bg-[#35E5FF]/10 border border-[#35E5FF]/30 text-[#35E5FF] text-[10px] sm:text-xs font-mono font-semibold tracking-wider whitespace-nowrap">
+          CERTIFICATION
+        </span>
+      );
+    }
+    if (achievement.id === 'esummit-game-stall' || achievement.type === 'EVENT') {
+      return (
+        <span className="px-2.5 py-1 rounded-full bg-[#4DA3FF]/10 border border-[#4DA3FF]/30 text-[#4DA3FF] text-[10px] sm:text-xs font-mono font-semibold tracking-wider whitespace-nowrap">
+          EVENT EXPERIENCE
+        </span>
+      );
+    }
+    if (achievement.id === 'goyal-traders-experience' || achievement.type === 'EXPERIENCE') {
+      return (
+        <span className="px-2.5 py-1 rounded-full bg-[#8D7BFF]/10 border border-[#8D7BFF]/30 text-[#8D7BFF] text-[10px] sm:text-xs font-mono font-semibold tracking-wider whitespace-nowrap">
+          PROFESSIONAL EXPERIENCE
+        </span>
+      );
+    }
+    return null;
+  };
+
   return (
     <section id="achievements" className="py-20 px-4 relative z-10 max-w-6xl mx-auto">
       {/* Section Header */}
@@ -61,15 +86,12 @@ export const AchievementVault: React.FC = () => {
           >
             {/* Top Badge Banner */}
             <div>
-              <div className="flex items-center justify-between mb-4">
-                <div className="p-3 rounded-xl bg-[#080C16] border border-[#35E5FF]/30 group-hover:border-[#35E5FF] transition-colors">
+              <div className="flex items-center justify-between gap-2 mb-4">
+                <div className="p-3 rounded-xl bg-[#080C16] border border-[#35E5FF]/30 group-hover:border-[#35E5FF] transition-colors shrink-0">
                   {getAchievementIcon(item.type)}
                 </div>
 
-                <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold">
-                  <CheckCircle className="w-3.5 h-3.5" />
-                  <span>UNLOCKED</span>
-                </div>
+                {getCategoryBadge(item)}
               </div>
 
               {/* Title & Metadata */}
