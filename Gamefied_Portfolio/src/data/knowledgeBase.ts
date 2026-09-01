@@ -47,7 +47,7 @@ export const PORTFOLIO_KNOWLEDGE = {
       description: 'AI-powered revenue recovery and risk operations platform for detecting payment failures, prioritizing financial exposure, automating policy-bounded recovery workflows, and maintaining auditable human approval for high-value actions.',
       highlights: '4-Level Policy Guardrails (Level 1 Autonomous to Level 4 Circuit Breakers), Multilingual Voice Copilot ("Talk to REVORA" in English/Hindi/Hinglish), AI Promise to Pay (P2P) NLP tracking, Real-time Gateway Ingestion, Human-in-the-Loop Governance, Cryptographic Audit Trail, Accessible Recharts Visualizations.',
       technologies: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL/Supabase', 'React Query', 'Tailwind CSS', 'Recharts', 'JWT/RBAC', 'AI Risk Engine', 'Voice Copilot'],
-      liveUrl: 'https://github.com/NaitG94/Revora',
+      liveUrl: 'https://revora-fawn.vercel.app/',
       githubUrl: 'https://github.com/NaitG94/Revora'
     },
     {

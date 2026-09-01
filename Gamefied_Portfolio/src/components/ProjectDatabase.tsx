@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers3, ExternalLink, CheckCircle2, ChevronRight, Layers, Sparkles } from 'lucide-react';
+import { Layers3, ExternalLink, CheckCircle2, ChevronRight, Layers, Sparkles, Trophy } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { GithubIcon } from './SocialIcons';
@@ -9,11 +9,47 @@ import { soundFx } from '../utils/sound';
 export const ProjectDatabase: React.FC = () => {
   const [selectedProjectId, setSelectedProjectId] = useState<string>(PROJECTS[0].id);
 
+  // Gamification: LocalStorage-persisted explored projects tracking across all 4 projects
+  const [exploredProjects, setExploredProjects] = useState<string[]>(() => {
+    try {
+      const saved = localStorage.getItem('naitik_os_explored_projects');
+      const parsed = saved ? JSON.parse(saved) : [PROJECTS[0].id];
+      // Ensure all valid stored IDs exist in current PROJECTS
+      return Array.isArray(parsed) ? parsed.filter((id) => PROJECTS.some((p) => p.id === id)) : [PROJECTS[0].id];
+    } catch {
+      return [PROJECTS[0].id];
+    }
+  });
+
   const selectedProject = PROJECTS.find((p) => p.id === selectedProjectId) || PROJECTS[0];
+
+  useEffect(() => {
+    // Automatically mark the currently viewed project as explored
+    if (!exploredProjects.includes(selectedProjectId)) {
+      const updated = [...exploredProjects, selectedProjectId];
+      setExploredProjects(updated);
+      try {
+        localStorage.setItem('naitik_os_explored_projects', JSON.stringify(updated));
+      } catch {}
+    }
+  }, [selectedProjectId, exploredProjects]);
 
   const handleSelectProject = (project: Project) => {
     soundFx.playClick();
     setSelectedProjectId(project.id);
+
+    if (!exploredProjects.includes(project.id)) {
+      const updated = [...exploredProjects, project.id];
+      setExploredProjects(updated);
+      try {
+        localStorage.setItem('naitik_os_explored_projects', JSON.stringify(updated));
+      } catch {}
+
+      // If all 4 projects are now explored, trigger unlock sound
+      if (updated.length === PROJECTS.length) {
+        soundFx.playUnlock();
+      }
+    }
   };
 
   const handleLaunch = (url: string) => {
@@ -21,11 +57,11 @@ export const ProjectDatabase: React.FC = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const hasDistinctLiveDemo = selectedProject.liveUrl && selectedProject.liveUrl !== selectedProject.githubUrl;
+  const isAllExplored = exploredProjects.length === PROJECTS.length;
 
   return (
     <section id="projects" className="py-20 px-4 relative z-10 max-w-6xl mx-auto">
-      {/* Section Title */}
+      {/* Section Title & Exploration HUD */}
       <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
         <div className="flex items-center gap-3">
           <div className="w-1.5 h-8 bg-[#35E5FF] rounded-full shadow-[0_0_10px_#35E5FF]" />
@@ -38,9 +74,16 @@ export const ProjectDatabase: React.FC = () => {
           </div>
         </div>
 
-        <div className="px-3 py-1 rounded-full cyber-glass border border-[#35E5FF]/30 text-xs font-mono text-[#35E5FF] flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-[#35E5FF] animate-pulse" />
-          <span>{PROJECTS.length} PROJECTS DEPLOYED</span>
+        {/* Gamification Exploration Badge */}
+        <div className="px-3.5 py-1.5 rounded-full cyber-glass border border-[#35E5FF]/30 text-xs font-mono text-[#35E5FF] flex items-center gap-2 shadow-[0_0_15px_rgba(53,229,255,0.15)]">
+          <span className={`w-2 h-2 rounded-full ${isAllExplored ? 'bg-emerald-400' : 'bg-[#35E5FF] animate-pulse'}`} />
+          <span>{exploredProjects.length}/{PROJECTS.length} PROJECTS EXPLORED</span>
+          {isAllExplored && (
+            <span className="text-emerald-400 font-bold ml-1 flex items-center gap-1">
+              <Trophy className="w-3.5 h-3.5" />
+              <span>[PROJECT ARCHIVIST]</span>
+            </span>
+          )}
         </div>
       </div>
 
@@ -49,13 +92,20 @@ export const ProjectDatabase: React.FC = () => {
         
         {/* Left Column: Project Selection Console */}
         <div className="lg:col-span-4 space-y-4">
-          <div className="text-xs font-mono text-slate-400 px-1 uppercase tracking-widest flex items-center gap-1.5">
-            <Layers className="w-3.5 h-3.5 text-[#35E5FF]" />
-            <span>PROJECT INDEX</span>
+          <div className="text-xs font-mono text-slate-400 px-1 uppercase tracking-widest flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <Layers className="w-3.5 h-3.5 text-[#35E5FF]" />
+              <span>PROJECT INDEX</span>
+            </div>
+            <span className="text-[10px] text-slate-500 font-mono">
+              {exploredProjects.length}/{PROJECTS.length} VISITED
+            </span>
           </div>
 
           {PROJECTS.map((project) => {
             const isSelected = project.id === selectedProjectId;
+            const isExplored = exploredProjects.includes(project.id);
+
             return (
               <motion.button
                 key={project.id}
@@ -75,9 +125,9 @@ export const ProjectDatabase: React.FC = () => {
 
                 <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
                   <span className="text-[#35E5FF] font-bold">{project.code}</span>
-                  <span className="flex items-center gap-1 text-emerald-400">
+                  <span className={`flex items-center gap-1 ${isExplored ? 'text-emerald-400 font-semibold' : 'text-slate-500'}`}>
                     <CheckCircle2 className="w-3 h-3" />
-                    {project.status}
+                    <span>{isExplored ? 'EXPLORED' : project.status}</span>
                   </span>
                 </div>
 
@@ -170,14 +220,17 @@ export const ProjectDatabase: React.FC = () => {
 
               {/* Project Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-[#35E5FF]/20 font-mono">
-                {hasDistinctLiveDemo && (
+                {/* Live Project Launch Button */}
+                {selectedProject.liveUrl && (
                   <button
                     onClick={() => handleLaunch(selectedProject.liveUrl)}
                     className="w-full sm:w-auto px-6 py-3 rounded-lg bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] font-bold text-xs tracking-wider hover:shadow-[0_0_25px_#35E5FF] transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>
-                      {selectedProject.id === 'tree-plantation'
+                      {selectedProject.id === 'revora'
+                        ? '▶ VIEW LIVE PROJECT'
+                        : selectedProject.id === 'tree-plantation'
                         ? '▶ LAUNCH PROJECT'
                         : selectedProject.id === 'expense-tracker'
                         ? '▶ EXPLORE APPLICATION'
@@ -186,17 +239,16 @@ export const ProjectDatabase: React.FC = () => {
                   </button>
                 )}
 
-                <button
-                  onClick={() => handleLaunch(selectedProject.githubUrl)}
-                  className={`w-full sm:w-auto px-6 py-3 rounded-lg font-bold text-xs tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
-                    !hasDistinctLiveDemo
-                      ? 'bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] hover:shadow-[0_0_25px_#35E5FF]'
-                      : 'cyber-glass border border-[#35E5FF]/40 text-slate-200 hover:text-[#35E5FF] hover:border-[#35E5FF]'
-                  }`}
-                >
-                  <GithubIcon className={`w-4 h-4 ${!hasDistinctLiveDemo ? 'text-[#05070D]' : 'text-[#35E5FF]'}`} />
-                  <span>&lt; &gt; {selectedProject.id === 'revora' ? 'VIEW ON GITHUB (REVORA)' : 'VIEW SOURCE'}</span>
-                </button>
+                {/* GitHub Source Code Button */}
+                {selectedProject.githubUrl && (
+                  <button
+                    onClick={() => handleLaunch(selectedProject.githubUrl)}
+                    className="w-full sm:w-auto px-6 py-3 rounded-lg cyber-glass border border-[#35E5FF]/40 text-slate-200 font-bold text-xs tracking-wider hover:text-[#35E5FF] hover:border-[#35E5FF] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <GithubIcon className="w-4 h-4 text-[#35E5FF]" />
+                    <span>&lt; &gt; {selectedProject.id === 'revora' ? 'VIEW ON GITHUB' : 'VIEW SOURCE'}</span>
+                  </button>
+                )}
               </div>
             </motion.div>
           </AnimatePresence>

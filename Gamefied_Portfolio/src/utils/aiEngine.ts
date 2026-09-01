@@ -132,7 +132,8 @@ class AIEngine {
 Ask me any natural question about Naitik's portfolio:
 • "Who is Naitik?"
 • "Tell me about REVORA"
-• "Tell me about his projects"
+• "Open Revora"
+• "Show me his projects"
 • "Which project uses FastAPI and Next.js?"
 • "Compare REVORA and Tree Plantation"
 • "What technologies does he work with?"
@@ -161,26 +162,27 @@ Ask me any natural question about Naitik's portfolio:
         text: `Based on his current portfolio, Naitik is a strong candidate for student developer, engineering internship, or full-stack/AI software opportunities.
 
 Key Portfolio Strengths:
-• Autonomous AI & FinOps: REVORA — Autonomous AI Revenue Recovery Platform built with Next.js, FastAPI, PostgreSQL/Supabase, AI Risk Engine & Multilingual Voice Copilot.
+• Autonomous AI & FinOps: REVORA — Autonomous AI Revenue Recovery Platform (Live: https://revora-fawn.vercel.app/) built with Next.js, FastAPI, PostgreSQL/Supabase, AI Risk Engine & Multilingual Voice Copilot.
 • Academic Focus: Pursuing B.Tech in CSE (AI/ML) at SSTC (2nd Semester).
 • Practical Project Building: Full-stack applications like Tree Plantation (TypeScript, Supabase) and Expense Tracker (analytics & charts).
 • Business Exposure: Real-world family store operations at Goyal Traders & E-Summit stall coordination.
 • Certified Web & AI Training: Certified 8-week Full-Stack Web Development with AI (84% score).`,
         type: 'success',
         actions: [
-          { label: 'EXPLORE REVORA (GITHUB)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+          { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
           { label: 'SEND EMAIL', actionType: 'email', url: `mailto:${PORTFOLIO_KNOWLEDGE.contact.email}` },
           { label: 'CONNECT ON LINKEDIN', actionType: 'linkedin', url: PORTFOLIO_KNOWLEDGE.contact.linkedin },
         ],
       };
     }
 
-    // 4. REVORA SPECIFIC INTENT
+    // 4. REVORA SPECIFIC INTENT (e.g. "Tell me about Revora", "What is Revora?", "Open Revora")
     if (lower.includes('revora')) {
       return {
         text: `REVORA is Naitik's flagship Autonomous AI Revenue Recovery & Risk Operations Platform:
 
 • PURPOSE: Autonomously detects payment failures, prioritizes financial exposure, executes policy-bounded recovery workflows, and maintains human-in-the-loop governance for high-value transactions.
+• LIVE PLATFORM: https://revora-fawn.vercel.app/
 • TECH STACK: Next.js, TypeScript, FastAPI, PostgreSQL/Supabase, React Query, Tailwind CSS, Recharts, JWT/RBAC, AI Risk Engine, Voice Copilot.
 • CORE CAPABILITIES:
   - 4-Level Policy Guardrails (Autonomous Low-Risk to Critical Anomaly Blocks)
@@ -190,7 +192,8 @@ Key Portfolio Strengths:
   - High-Exposure Human Approval Queue`,
         type: 'info',
         actions: [
-          { label: 'VIEW ON GITHUB (REVORA)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+          { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
+          { label: 'VIEW ON GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
         ],
       };
     }
@@ -250,14 +253,14 @@ Key Portfolio Strengths:
       return {
         text: `Technical comparison of Naitik's featured projects:
 
-• REVORA: An enterprise AI FinOps & Revenue Recovery platform built with Next.js, FastAPI, PostgreSQL/Supabase, AI Risk Engine, and Voice Copilot. It features 4-level policy guardrails, real-time telemetry, and human-in-the-loop approvals.
+• REVORA: An enterprise AI FinOps & Revenue Recovery platform built with Next.js, FastAPI, PostgreSQL/Supabase, AI Risk Engine, and Voice Copilot. Live at https://revora-fawn.vercel.app/.
 • TREE PLANTATION: A sustainability-focused full-stack web application built with TypeScript, Supabase, and Vercel.
 • EXPENSE TRACKER: A client-side personal finance tool built with JavaScript, HTML, and CSS focused on interactive analytics, custom category dashboards, and spending heatmaps.
 
 REVORA represents his most advanced full-stack & AI systems architecture, while Tree Plantation and Expense Tracker showcase frontend/backend integration and UI analytics.`,
         type: 'info',
         actions: [
-          { label: 'VIEW REVORA (GITHUB)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+          { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
           { label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
           { label: 'EXPENSE TRACKER (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl },
         ],
@@ -269,13 +272,13 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
         text: `Both REVORA (Project 01) and TREE PLANTATION (Project 02) use Supabase / PostgreSQL for database management and backend data structures. REVORA pairs Supabase with FastAPI and Next.js, while Tree Plantation utilizes TypeScript on Vercel.`,
         type: 'info',
         actions: [
-          { label: 'VIEW REVORA (GITHUB)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+          { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
           { label: 'VIEW TREE PLANTATION', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
         ],
       };
     }
 
-    // 10. PROJECTS INTENT
+    // 10. PROJECTS INTENT ("Show me his projects", "What projects has he built?")
     if (
       lower === 'projects' ||
       lower.includes('project') ||
@@ -286,13 +289,13 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
       return {
         text: `Naitik's portfolio includes four featured projects:
 
-1. REVORA — Autonomous AI Revenue Recovery Platform (Next.js, FastAPI, Supabase, AI Risk Engine, Voice Copilot).
-2. TREE PLANTATION — Sustainability full-stack web app (TypeScript, Supabase, Vercel).
-3. EXPENSE TRACKER — Personal finance application (JavaScript, HTML, CSS, Data Visualization charts).
-4. GOYAL TRADERS — Real-world business website (HTML, CSS, JavaScript).`,
+1. REVORA — Autonomous AI Revenue Recovery Platform (Next.js, FastAPI, Supabase, AI Risk Engine, Voice Copilot). Live: https://revora-fawn.vercel.app/
+2. TREE PLANTATION — Sustainability full-stack web app (TypeScript, Supabase, Vercel). Live: https://tree-plantation-xi.vercel.app/
+3. EXPENSE TRACKER — Personal finance application (JavaScript, HTML, CSS, Data Visualization charts). Live: https://naitg94.github.io/Expense-Tracker/
+4. GOYAL TRADERS — Real-world business website (HTML, CSS, JavaScript). Live: https://naitg94.github.io/Goyal-Traders-2/`,
         type: 'info',
         actions: [
-          { label: 'REVORA (GITHUB)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+          { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
           { label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
           { label: 'EXPENSE TRACKER (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl },
           { label: 'GOYAL TRADERS (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[3].liveUrl },
@@ -364,7 +367,7 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
 He is in his 2nd Semester studying B.Tech in Computer Science Engineering (AI/ML) at Shri Shankaracharya Technical Campus (SSTC). He builds intelligent software products, such as REVORA (Autonomous AI Revenue Recovery Platform) and Tree Plantation.`,
         type: 'info',
         actions: [
-          { label: 'EXPLORE REVORA (GITHUB)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+          { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
           { label: 'SEND EMAIL', actionType: 'email', url: `mailto:${PORTFOLIO_KNOWLEDGE.contact.email}` },
           { label: 'CONNECT ON LINKEDIN', actionType: 'linkedin', url: PORTFOLIO_KNOWLEDGE.contact.linkedin },
         ],
@@ -376,7 +379,7 @@ He is in his 2nd Semester studying B.Tech in Computer Science Engineering (AI/ML
       text: `Naitik Goyal is a 2nd Semester B.Tech CSE (AI/ML) student at SSTC building projects like REVORA (Autonomous AI Revenue Recovery Platform) and Tree Plantation. How can I help you explore his portfolio?`,
       type: 'info',
       actions: [
-        { label: 'REVORA ON GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+        { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
         { label: 'SEND EMAIL', actionType: 'email', url: `mailto:${PORTFOLIO_KNOWLEDGE.contact.email}` },
         { label: 'DOWNLOAD RESUME (PDF)', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl },
       ],

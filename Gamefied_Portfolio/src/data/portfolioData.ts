@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
       'Interactive Risk & Recovery Analytics with accessible Recharts visualizations'
     ],
     technologies: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL/Supabase', 'React Query', 'Tailwind CSS', 'Recharts', 'JWT/RBAC', 'AI Risk Engine', 'Voice Copilot'],
-    liveUrl: 'https://github.com/NaitG94/Revora',
+    liveUrl: 'https://revora-fawn.vercel.app/',
     githubUrl: 'https://github.com/NaitG94/Revora',
     themeColor: '#35E5FF',
     accentBg: 'from-cyan-950/40 via-blue-950/20 to-slate-950'

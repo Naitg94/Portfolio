@@ -190,7 +190,8 @@ function generateContextualActions(combinedText: string) {
     actions.push({ label: 'DOWNLOAD RESUME (PDF)', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl });
   }
   if (combinedText.includes('revora')) {
-    actions.push({ label: 'REVORA (GITHUB)', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl });
+    actions.push({ label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl });
+    actions.push({ label: 'REVORA GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl });
   }
   if (combinedText.includes('tree plantation')) {
     actions.push({ label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl });
