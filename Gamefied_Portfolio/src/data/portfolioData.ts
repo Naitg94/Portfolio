@@ -3,12 +3,12 @@ export interface Project {
   code: string;
   name: string;
   category: string;
-  status: 'COMPLETED' | 'IN PROGRESS';
-  objective: string;
-  description: string;
-  highlights: string[];
-  technologies: string[];
-  liveUrl: string;
+  status?: 'COMPLETED' | 'IN PROGRESS';
+  objective?: string;
+  description?: string;
+  highlights?: string[];
+  technologies?: string[];
+  liveUrl?: string;
   githubUrl: string;
   themeColor: string;
   accentBg: string;
@@ -202,6 +202,15 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/Naitg94/Goyal-Traders-2.git',
     themeColor: '#8D7BFF',
     accentBg: 'from-violet-950/40 via-purple-950/20 to-slate-950'
+  },
+  {
+    id: 'mplads-sentinels',
+    code: 'PROJECT 05',
+    name: 'MPLADS SENTINELS',
+    category: 'GITHUB REPOSITORY',
+    githubUrl: 'https://github.com/Naitg94/MPLADS-Sentinals.git',
+    themeColor: '#35E5FF',
+    accentBg: 'from-cyan-950/40 via-slate-950 to-slate-950'
   }
 ];
 

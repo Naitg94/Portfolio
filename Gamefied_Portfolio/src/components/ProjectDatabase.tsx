@@ -165,65 +165,95 @@ export const ProjectDatabase: React.FC = () => {
                   </h3>
                 </div>
 
-                <div className="flex items-center gap-2 px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
-                  <CheckCircle2 className="w-4 h-4" />
-                  <span>STATUS: {selectedProject.status}</span>
-                </div>
+                {selectedProject.status && (
+                  <div className="flex items-center gap-2 px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
+                    <CheckCircle2 className="w-4 h-4" />
+                    <span>STATUS: {selectedProject.status}</span>
+                  </div>
+                )}
               </div>
 
               {/* Project Objective */}
-              <div className="space-y-2">
-                <div className="text-xs font-mono text-[#35E5FF] font-semibold tracking-wider uppercase flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  <span>PROJECT OBJECTIVE</span>
+              {selectedProject.objective && (
+                <div className="space-y-2">
+                  <div className="text-xs font-mono text-[#35E5FF] font-semibold tracking-wider uppercase flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5" />
+                    <span>PROJECT OBJECTIVE</span>
+                  </div>
+                  <p className="text-slate-200 text-sm sm:text-base font-medium leading-relaxed bg-[#080C16] p-4 rounded-xl border border-[#35E5FF]/20">
+                    {selectedProject.objective}
+                  </p>
                 </div>
-                <p className="text-slate-200 text-sm sm:text-base font-medium leading-relaxed bg-[#080C16] p-4 rounded-xl border border-[#35E5FF]/20">
-                  {selectedProject.objective}
-                </p>
-              </div>
+              )}
 
               {/* Description & Key Highlights */}
-              <div className="space-y-3 font-sans">
-                <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">
-                  PROJECT BRIEF & SYSTEM FEATURES
-                </div>
-                <p className="text-slate-300 text-sm leading-relaxed">
-                  {selectedProject.description}
-                </p>
+              {(selectedProject.description || (selectedProject.highlights && selectedProject.highlights.length > 0)) && (
+                <div className="space-y-3 font-sans">
+                  <div className="text-xs font-mono text-slate-400 uppercase tracking-wider">
+                    PROJECT BRIEF & SYSTEM FEATURES
+                  </div>
+                  {selectedProject.description && (
+                    <p className="text-slate-300 text-sm leading-relaxed">
+                      {selectedProject.description}
+                    </p>
+                  )}
 
-                <div className="space-y-2 pt-2">
-                  {selectedProject.highlights.map((highlight, idx) => (
-                    <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-200 font-mono">
-                      <ChevronRight className="w-4 h-4 text-[#35E5FF] shrink-0 mt-0.5" />
-                      <span>{highlight}</span>
+                  {selectedProject.highlights && selectedProject.highlights.length > 0 && (
+                    <div className="space-y-2 pt-2">
+                      {selectedProject.highlights.map((highlight, idx) => (
+                        <div key={idx} className="flex items-start gap-2 text-xs sm:text-sm text-slate-200 font-mono">
+                          <ChevronRight className="w-4 h-4 text-[#35E5FF] shrink-0 mt-0.5" />
+                          <span>{highlight}</span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  )}
                 </div>
-              </div>
+              )}
+
+              {/* Repository Overview (when no description / objective provided) */}
+              {!selectedProject.objective && !selectedProject.description && (
+                <div className="space-y-3 font-mono">
+                  <div className="text-xs text-slate-400 uppercase tracking-wider">
+                    REPOSITORY OVERVIEW
+                  </div>
+                  <div className="bg-[#080C16] p-4 rounded-xl border border-[#35E5FF]/20 text-slate-300 text-xs sm:text-sm leading-relaxed space-y-2">
+                    <div className="text-[#35E5FF] font-semibold">GitHub Repository Reference</div>
+                    <p className="text-slate-400">
+                      Source code repository available on GitHub. Verified project details, features, and technology stack have not been provided yet.
+                    </p>
+                    <div className="text-[11px] text-slate-500 truncate pt-1">
+                      Repository: {selectedProject.githubUrl}
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {/* Tech Stack Badges */}
-              <div className="space-y-2 pt-2 border-t border-[#35E5FF]/20 font-mono">
-                <div className="text-xs text-slate-400 uppercase tracking-wider">
-                  SYSTEM TECHNOLOGIES
+              {selectedProject.technologies && selectedProject.technologies.length > 0 && (
+                <div className="space-y-2 pt-2 border-t border-[#35E5FF]/20 font-mono">
+                  <div className="text-xs text-slate-400 uppercase tracking-wider">
+                    SYSTEM TECHNOLOGIES
+                  </div>
+                  <div className="flex flex-wrap gap-2">
+                    {selectedProject.technologies.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 rounded-md bg-[#35E5FF]/10 text-[#35E5FF] border border-[#35E5FF]/30 text-xs font-semibold"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-wrap gap-2">
-                  {selectedProject.technologies.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 rounded-md bg-[#35E5FF]/10 text-[#35E5FF] border border-[#35E5FF]/30 text-xs font-semibold"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              )}
 
               {/* Project Action Buttons */}
               <div className="flex flex-col sm:flex-row items-center gap-4 pt-4 border-t border-[#35E5FF]/20 font-mono">
                 {/* Live Project Launch Button */}
                 {selectedProject.liveUrl && (
                   <button
-                    onClick={() => handleLaunch(selectedProject.liveUrl)}
+                    onClick={() => handleLaunch(selectedProject.liveUrl!)}
                     className="w-full sm:w-auto px-6 py-3 rounded-lg bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] font-bold text-xs tracking-wider hover:shadow-[0_0_25px_#35E5FF] transition-all flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <ExternalLink className="w-4 h-4" />
@@ -243,10 +273,16 @@ export const ProjectDatabase: React.FC = () => {
                 {selectedProject.githubUrl && (
                   <button
                     onClick={() => handleLaunch(selectedProject.githubUrl)}
-                    className="w-full sm:w-auto px-6 py-3 rounded-lg cyber-glass border border-[#35E5FF]/40 text-slate-200 font-bold text-xs tracking-wider hover:text-[#35E5FF] hover:border-[#35E5FF] transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className={`w-full sm:w-auto px-6 py-3 rounded-lg font-bold text-xs tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
+                      !selectedProject.liveUrl
+                        ? 'bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] hover:shadow-[0_0_25px_#35E5FF]'
+                        : 'cyber-glass border border-[#35E5FF]/40 text-slate-200 hover:text-[#35E5FF] hover:border-[#35E5FF]'
+                    }`}
                   >
-                    <GithubIcon className="w-4 h-4 text-[#35E5FF]" />
-                    <span>&lt; &gt; {selectedProject.id === 'revora' ? 'VIEW ON GITHUB' : 'VIEW SOURCE'}</span>
+                    <GithubIcon className={`w-4 h-4 ${!selectedProject.liveUrl ? 'text-[#05070D]' : 'text-[#35E5FF]'}`} />
+                    <span>
+                      &lt; &gt; {selectedProject.id === 'mplads-sentinels' ? 'VIEW SOURCE CODE' : selectedProject.id === 'revora' ? 'VIEW ON GITHUB' : 'VIEW SOURCE'}
+                    </span>
                   </button>
                 )}
               </div>

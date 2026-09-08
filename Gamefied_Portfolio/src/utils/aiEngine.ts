@@ -198,7 +198,18 @@ Key Portfolio Strengths:
       };
     }
 
-    // 5. RESUME INTENT
+    // 5. MPLADS SENTINELS INTENT (e.g. "What is MPLADS Sentinels?", "Open MPLADS Sentinels", "Show me MPLADS Sentinels", "Show me the MPLADS GitHub", "Open the MPLADS repository")
+    if (lower.includes('mplads')) {
+      return {
+        text: "MPLADS Sentinels is a GitHub repository in Naitik's portfolio, but I don't have a verified project description available here yet.",
+        type: 'info',
+        actions: [
+          { label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git' },
+        ],
+      };
+    }
+
+    // 6. RESUME INTENT
     if (lower === 'resume' || lower.includes('resume') || lower.includes('cv')) {
       return {
         text: `You can download Naitik Goyal's official one-page resume PDF directly:`,
@@ -209,7 +220,7 @@ Key Portfolio Strengths:
       };
     }
 
-    // 6. GITHUB INTENT
+    // 7. GITHUB INTENT
     if (lower === 'github' || lower.includes('github') || lower.includes('repository') || lower.includes('source code')) {
       return {
         text: `Explore Naitik's repositories and project code on GitHub: ${PORTFOLIO_KNOWLEDGE.contact.github}`,
@@ -217,6 +228,7 @@ Key Portfolio Strengths:
         actions: [
           { label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.contact.github },
           { label: 'VIEW REVORA REPO', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
+          { label: 'MPLADS SENTINELS REPO', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git' },
         ],
       };
     }
@@ -278,7 +290,7 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
       };
     }
 
-    // 10. PROJECTS INTENT ("Show me his projects", "What projects has he built?")
+    // 11. PROJECTS INTENT ("Show me his projects", "What projects has he built?")
     if (
       lower === 'projects' ||
       lower.includes('project') ||
@@ -287,18 +299,20 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
       lower.includes('application')
     ) {
       return {
-        text: `Naitik's portfolio includes four featured projects:
+        text: `Naitik's portfolio includes featured projects and repositories:
 
 1. REVORA — Autonomous AI Revenue Recovery Platform (Next.js, FastAPI, Supabase, AI Risk Engine, Voice Copilot). Live: https://revora-fawn.vercel.app/
 2. TREE PLANTATION — Sustainability full-stack web app (TypeScript, Supabase, Vercel). Live: https://tree-plantation-xi.vercel.app/
 3. EXPENSE TRACKER — Personal finance application (JavaScript, HTML, CSS, Data Visualization charts). Live: https://naitg94.github.io/Expense-Tracker/
-4. GOYAL TRADERS — Real-world business website (HTML, CSS, JavaScript). Live: https://naitg94.github.io/Goyal-Traders-2/`,
+4. GOYAL TRADERS — Real-world business website (HTML, CSS, JavaScript). Live: https://naitg94.github.io/Goyal-Traders-2/
+5. MPLADS SENTINELS — GitHub Repository: https://github.com/Naitg94/MPLADS-Sentinals.git`,
         type: 'info',
         actions: [
           { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
           { label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
           { label: 'EXPENSE TRACKER (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl },
           { label: 'GOYAL TRADERS (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[3].liveUrl },
+          { label: 'MPLADS GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git' },
         ],
       };
     }

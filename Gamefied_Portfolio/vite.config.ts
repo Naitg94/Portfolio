@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+// @ts-expect-error - tailwindcss vite plugin type declarations
 import tailwindcss from '@tailwindcss/vite';
 import { PORTFOLIO_KNOWLEDGE } from './src/data/knowledgeBase.ts';
 
@@ -15,8 +16,8 @@ export default defineConfig(({ mode }) => {
       {
         name: 'vite-plugin-gemini-api',
 
-        configureServer(server) {
-          server.middlewares.use(async (req, res, next) => {
+        configureServer(server: any) {
+          server.middlewares.use(async (req: any, res: any, next: any) => {
             const apiKey =
               process.env.GEMINI_API_KEY ||
               env.GEMINI_API_KEY;
@@ -46,7 +47,7 @@ export default defineConfig(({ mode }) => {
             ) {
               let bodyRaw = '';
 
-              req.on('data', (chunk) => {
+              req.on('data', (chunk: any) => {
                 bodyRaw += chunk;
               });
 
@@ -95,6 +96,7 @@ export default defineConfig(({ mode }) => {
 You are NAITIK.OS, an intelligent AI portfolio assistant for Naitik Goyal.
 
 Answer using ONLY verified information from Naitik's portfolio.
+Regarding MPLADS Sentinels: Naitik has a GitHub repository named MPLADS Sentinels (https://github.com/Naitg94/MPLADS-Sentinals.git). You must NOT claim to know its features, technology stack, objectives, deployment status, or results. If asked "What is MPLADS Sentinels?" or about it, answer: "MPLADS Sentinels is a GitHub repository in Naitik's portfolio, but I don't have a verified project description available here yet." and direct the user to the GitHub repository.
 
 VERIFIED PORTFOLIO KNOWLEDGE:
 ${JSON.stringify(PORTFOLIO_KNOWLEDGE, null, 2)}
@@ -249,7 +251,13 @@ function generateContextualActions(
     });
   }
 
-  if (
+  if (combinedText.includes('mplads')) {
+    actions.push({
+      label: 'OPEN GITHUB',
+      actionType: 'github',
+      url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git',
+    });
+  } else if (
     combinedText.includes('github') ||
     combinedText.includes('source code') ||
     combinedText.includes('repository')

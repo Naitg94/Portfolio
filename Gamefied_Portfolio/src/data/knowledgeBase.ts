@@ -82,6 +82,17 @@ export const PORTFOLIO_KNOWLEDGE = {
       technologies: ['HTML', 'CSS', 'JavaScript'],
       liveUrl: 'https://naitg94.github.io/Goyal-Traders-2/',
       githubUrl: 'https://github.com/Naitg94/Goyal-Traders-2.git'
+    },
+    {
+      id: 'mplads-sentinels',
+      code: 'PROJECT 05',
+      name: 'MPLADS Sentinels',
+      category: 'GitHub Repository',
+      description: "A GitHub repository in Naitik's portfolio. No verified project description available yet.",
+      highlights: 'Source code repository reference.',
+      technologies: [],
+      liveUrl: '',
+      githubUrl: 'https://github.com/Naitg94/MPLADS-Sentinals.git'
     }
   ],
   achievements: [

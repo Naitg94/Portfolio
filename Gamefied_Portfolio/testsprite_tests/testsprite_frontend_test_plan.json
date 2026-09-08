@@ -1,0 +1,1144 @@
+[
+  {
+    "id": "TC001",
+    "title": "Explore all featured projects and unlock archivist status",
+    "description": "A visitor can visit all featured projects, see exploration progress increase, and unlock the project archivist reward after completing the set.",
+    "category": "Achievement Vault",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the first featured project card"
+      },
+      {
+        "type": "action",
+        "description": "Return to the projects section"
+      },
+      {
+        "type": "action",
+        "description": "Click the second featured project card"
+      },
+      {
+        "type": "action",
+        "description": "Return to the projects section"
+      },
+      {
+        "type": "action",
+        "description": "Click the third featured project card"
+      },
+      {
+        "type": "action",
+        "description": "Return to the projects section"
+      },
+      {
+        "type": "action",
+        "description": "Click the fourth featured project card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project exploration counter shows completion of all featured projects"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project archivist reward is unlocked"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC002",
+    "title": "Use the contact terminal to get a helpful AI response",
+    "description": "This verifies that the contact terminal can answer a question about Naitik or his work and present a useful chatbot response.",
+    "category": "Contact Terminal & AI Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the contact terminal and chatbot section"
+      },
+      {
+        "type": "action",
+        "description": "Enter a question about Naitik into the chat input"
+      },
+      {
+        "type": "action",
+        "description": "Send the chat message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify an AI response is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the response contains actionable contact or portfolio information"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC003",
+    "title": "Hero landing renders core identity and status",
+    "description": "Verifies the portfolio opens on the hero section with the expected status, identity, and primary entry actions available.",
+    "category": "Hero Section",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the online system status and primary portfolio entry actions are visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC004",
+    "title": "Open portfolio at hero and verify system status",
+    "description": "A visitor can land on the hero section and confirm the core landing experience is ready for browsing.",
+    "category": "Achievement Vault",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero landing section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the system status indicates online"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC005",
+    "title": "Unlock the project archivist badge after exploring all projects",
+    "description": "This verifies that completing exploration of all four projects reveals the archive badge and gives unlock feedback.",
+    "category": "Project Database",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Select the first featured project"
+      },
+      {
+        "type": "action",
+        "description": "Select the second featured project"
+      },
+      {
+        "type": "action",
+        "description": "Select the third featured project"
+      },
+      {
+        "type": "action",
+        "description": "Select the fourth featured project"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project archivist badge is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify unlock feedback is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC006",
+    "title": "Jump between sections with the floating HUD",
+    "description": "Verifies the fixed navigation lets the visitor move through the portfolio sections from the top of the page without losing browsing continuity.",
+    "category": "Floating Navigation HUD",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation item for the journey section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the journey section is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation item for the skills section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the skills section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC007",
+    "title": "Ask who Naitik is and use the chatbot reply actions",
+    "description": "A visitor can ask the chatbot about Naitik and use the returned action buttons to continue to relevant contact or project destinations.",
+    "category": "Contact Terminal & AI Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the contact terminal and chatbot section"
+      },
+      {
+        "type": "action",
+        "description": "Type a question asking who Naitik is into the chat input"
+      },
+      {
+        "type": "action",
+        "description": "Submit the chat message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a chatbot reply is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify at least one follow-up action button is available"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC008",
+    "title": "Explore projects from the hero section",
+    "description": "Verifies the main hero call to action takes the visitor to the projects area of the portfolio.",
+    "category": "Hero Section",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the primary action to explore projects"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the projects section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user is positioned in the projects area"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC009",
+    "title": "Launch contact actions from the chatbot response",
+    "description": "This verifies that the chatbot can surface portfolio actions such as opening the live project, sending email, or downloading the resume.",
+    "category": "Contact Terminal & AI Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the contact terminal and chatbot section"
+      },
+      {
+        "type": "action",
+        "description": "Ask the chatbot for Naitik's projects"
+      },
+      {
+        "type": "action",
+        "description": "Send the chat message"
+      },
+      {
+        "type": "action",
+        "description": "Use one of the returned action buttons"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a contact or project action is available"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the chatbot response remains visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC010",
+    "title": "Track exploration progress as projects are visited",
+    "description": "This verifies that exploring multiple projects updates the visited counter and marks progress toward completing the database.",
+    "category": "Project Database",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Select the first featured project"
+      },
+      {
+        "type": "action",
+        "description": "Select the second featured project"
+      },
+      {
+        "type": "action",
+        "description": "Select the third featured project"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the projects explored counter is updated"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify visited project state is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC011",
+    "title": "Use floating navigation to browse key sections",
+    "description": "A visitor can jump through the main portfolio sections from the floating navigation without breaking the single-page browsing flow.",
+    "category": "Achievement Vault",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the profile section"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the journey section"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the skills section"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the projects section"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the achievements section"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the education section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the education section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page remains on the portfolio experience"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC012",
+    "title": "Open the portfolio sections from the floating HUD",
+    "description": "This verifies that the floating HUD exposes section navigation across the main portfolio areas without losing the page context.",
+    "category": "Hero Landing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Use the floating navigation to jump to the profile section"
+      },
+      {
+        "type": "action",
+        "description": "Use the floating navigation to jump to the projects section"
+      },
+      {
+        "type": "action",
+        "description": "Use the floating navigation to jump to the contact section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the floating navigation remains available"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the target portfolio section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC013",
+    "title": "Use chatbot suggestion chips to request projects",
+    "description": "A visitor can start from a suggestion chip, receive a project-oriented reply, and see a relevant follow-up action.",
+    "category": "Contact Terminal & AI Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the contact terminal and chatbot section"
+      },
+      {
+        "type": "action",
+        "description": "Click the suggestion chip for viewing projects"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the prompt is populated and submitted"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify a project-related chatbot reply is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC014",
+    "title": "View profile from the hero section",
+    "description": "Verifies the hero profile call to action takes the visitor to the player profile section.",
+    "category": "Hero Section",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the profile action from the hero section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the player profile section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the profile entry actions are visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC015",
+    "title": "Open each featured project detail in the database",
+    "description": "This verifies that a visitor can inspect all four featured projects from the project database and see the matching detail panel for each selection.",
+    "category": "Project Database",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Select the first featured project"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project detail panel is displayed"
+      },
+      {
+        "type": "action",
+        "description": "Select the second featured project"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project detail panel updates to the second project"
+      },
+      {
+        "type": "action",
+        "description": "Select the third featured project"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project detail panel updates to the third project"
+      },
+      {
+        "type": "action",
+        "description": "Select the fourth featured project"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project detail panel updates to the fourth project"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC016",
+    "title": "Launch external contact actions from the portfolio",
+    "description": "A visitor can use the contact panel actions to open the intended email, LinkedIn, GitHub, or resume destinations from the portfolio.",
+    "category": "Contact Terminal & AI Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the contact terminal and chatbot section"
+      },
+      {
+        "type": "action",
+        "description": "Click the email contact action"
+      },
+      {
+        "type": "action",
+        "description": "Click the LinkedIn contact action"
+      },
+      {
+        "type": "action",
+        "description": "Click the GitHub contact action"
+      },
+      {
+        "type": "action",
+        "description": "Click the resume action"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the contact panel presents direct outreach options"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the resume action is available"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC017",
+    "title": "Open the portfolio from the hero landing state",
+    "description": "This verifies that the hero section renders the expected landing state and invites the user into the portfolio experience.",
+    "category": "Hero Landing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero landing section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the system status is visible"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC018",
+    "title": "Return to the top from the floating HUD",
+    "description": "Verifies the portfolio logo in the floating navigation takes the visitor back to the hero section.",
+    "category": "Floating Navigation HUD",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation logo"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC019",
+    "title": "Open the live project from the REVORA details",
+    "description": "This verifies that the project database exposes the live REVORA action from the project detail panel.",
+    "category": "Project Database",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Select the first featured project"
+      },
+      {
+        "type": "action",
+        "description": "Launch the live project from the detail panel"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project launch action is available"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC020",
+    "title": "Use the hero call to action to explore projects",
+    "description": "This verifies that the hero CTA leads a visitor toward the project exploration flow from the landing section.",
+    "category": "Hero Landing",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Use the hero call to action to explore projects"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the project exploration section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC021",
+    "title": "Open email, LinkedIn, GitHub, and resume actions from the profile card",
+    "description": "Verifies the player profile quick actions provide the expected outreach and portfolio entry points for a visitor.",
+    "category": "Player Profile Section",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the quick action to send a message"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the email client action is initiated"
+      },
+      {
+        "type": "action",
+        "description": "Click the quick action to open the LinkedIn profile"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the LinkedIn profile action is initiated"
+      },
+      {
+        "type": "action",
+        "description": "Click the quick action to open the GitHub profile"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the GitHub profile action is initiated"
+      },
+      {
+        "type": "action",
+        "description": "Click the quick action to download the resume"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the resume download is initiated"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC022",
+    "title": "Achievement cards reward interaction",
+    "description": "A visitor can click an achievement card and receive celebratory feedback while staying on the portfolio page.",
+    "category": "Achievement Vault",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click an achievement card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify celebratory feedback is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the user remains on the portfolio page"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC023",
+    "title": "Continue browsing from the profile quick actions",
+    "description": "This verifies that a visitor can use the profile quick actions and then return to browsing the portfolio sections.",
+    "category": "Player Profile",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the player profile section"
+      },
+      {
+        "type": "action",
+        "description": "Activate a quick action from the profile"
+      },
+      {
+        "type": "action",
+        "description": "Return to the portfolio page"
+      },
+      {
+        "type": "action",
+        "description": "Use the floating navigation to jump to another section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the profile quick actions are available"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify another portfolio section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC024",
+    "title": "Return from quick actions and continue browsing via the HUD",
+    "description": "A portfolio visitor can use profile quick actions, come back to the portfolio, and continue section navigation without losing the single-page experience.",
+    "category": "Contact Terminal & AI Chatbot",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the profile section"
+      },
+      {
+        "type": "action",
+        "description": "Click the LinkedIn quick action"
+      },
+      {
+        "type": "action",
+        "description": "Return to the portfolio page"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the skills section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the skills section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the portfolio navigation remains usable after returning"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC025",
+    "title": "Open the mobile navigation overlay and continue browsing",
+    "description": "Verifies the mobile hamburger menu opens the overlay navigation and can be used to reach a section on a small viewport.",
+    "category": "Floating Navigation HUD",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Set the viewport to a mobile size"
+      },
+      {
+        "type": "action",
+        "description": "Click the mobile navigation menu button"
+      },
+      {
+        "type": "action",
+        "description": "Click the navigation item for the projects section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the mobile navigation overlay closes after selection"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the projects section is displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC026",
+    "title": "Download the resume from the floating HUD",
+    "description": "Verifies the resume control in the floating navigation initiates the portfolio resume download action.",
+    "category": "Floating Navigation HUD",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the download resume control in the floating navigation"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the resume download is initiated"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC027",
+    "title": "Inspect a skill cluster from the interactive universe",
+    "description": "This verifies that selecting a skill node reveals the relevant skill cluster details in the interactive skill universe.",
+    "category": "Skill Universe",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Use the floating navigation to jump to the skills section"
+      },
+      {
+        "type": "action",
+        "description": "Select a skill node"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the selected skill cluster details are displayed"
+      }
+    ],
+    "priority": "High"
+  },
+  {
+    "id": "TC028",
+    "title": "Review the full skill universe categories",
+    "description": "This verifies that the skill universe renders all major skill categories and their status labels for browsing.",
+    "category": "Skill Universe",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the skills section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the skill category grid is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the skill status labels are visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC029",
+    "title": "Use the hero scroll cue to continue browsing",
+    "description": "Verifies the hero scroll cue moves the visitor down the page to the next content instead of leaving them stuck at the top.",
+    "category": "Hero Section",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the hero scroll cue"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page has moved away from the hero section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the next portfolio section is displayed"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC030",
+    "title": "Review education details from the page and section navigation",
+    "description": "A visitor can open the education section and read the academic overview without seeing unsupported academic metrics.",
+    "category": "Education Node",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the floating navigation link for the education section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the education card is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the academic overview is shown without a CGPA field"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC031",
+    "title": "Reach the journey section from the floating navigation",
+    "description": "This verifies that the floating HUD can smoothly take a visitor to the journey section without breaking the page experience.",
+    "category": "Developer Journey",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Use the floating navigation to jump to the journey section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the journey section is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the current level emphasis is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC032",
+    "title": "Review the journey timeline from start to finish",
+    "description": "This verifies that the developer journey timeline is readable and shows the full progression from foundational web development to intelligent systems.",
+    "category": "Developer Journey",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the journey timeline is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the full progression of milestone cards is visible"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC033",
+    "title": "Review hero call to action variants and scroll cue",
+    "description": "A visitor can use the hero's primary call to action variants and scroll cue to continue into the portfolio content.",
+    "category": "Achievement Vault",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the primary call to action to explore projects"
+      },
+      {
+        "type": "action",
+        "description": "Return to the hero section"
+      },
+      {
+        "type": "action",
+        "description": "Click the secondary call to action to view the profile"
+      },
+      {
+        "type": "action",
+        "description": "Return to the hero section"
+      },
+      {
+        "type": "action",
+        "description": "Click the hero scroll cue"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the page scrolls to the next content section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the hero actions remain available"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC034",
+    "title": "Keep the journey content readable during fallback rendering",
+    "description": "This verifies that the journey section remains understandable if its animated rendering is delayed or incomplete.",
+    "category": "Developer Journey",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the journey section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the journey timeline structure is visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the progression content remains readable"
+      }
+    ],
+    "priority": "Medium"
+  },
+  {
+    "id": "TC035",
+    "title": "Keep skill browsing usable during fallback rendering",
+    "description": "This verifies that the skill universe remains readable when animated skill assets or interactions resolve late.",
+    "category": "Skill Universe",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Scroll to the skills section"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the skill category labels remain visible"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the skill node grid remains visible"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC036",
+    "title": "Achievement cards remain usable when sounds are muted",
+    "description": "A muted visitor can still interact with an achievement card and receive the visual reward without breaking the experience.",
+    "category": "Achievement Vault",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Mute sound effects from the available sound control"
+      },
+      {
+        "type": "action",
+        "description": "Click an achievement card"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify celebratory feedback is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the muted sound state is preserved"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC037",
+    "title": "Mute and unmute portfolio sounds from the HUD",
+    "description": "Verifies the sound toggle updates the browsing sound state while keeping the portfolio usable.",
+    "category": "Floating Navigation HUD",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Click the sound toggle"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the muted sound state is applied"
+      },
+      {
+        "type": "action",
+        "description": "Click the sound toggle again"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the unmuted sound state is applied"
+      }
+    ],
+    "priority": "Low"
+  },
+  {
+    "id": "TC038",
+    "title": "Education section stays readable during delayed content rendering",
+    "description": "A visitor can still see a usable education section shell and metadata while content loads in late.",
+    "category": "Education Node",
+    "steps": [
+      {
+        "type": "action",
+        "description": "Navigate to /"
+      },
+      {
+        "type": "action",
+        "description": "Wait for the education section to finish rendering"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the education card shell is displayed"
+      },
+      {
+        "type": "assertion",
+        "description": "Verify the education section remains readable"
+      }
+    ],
+    "priority": "Low"
+  }
+]
