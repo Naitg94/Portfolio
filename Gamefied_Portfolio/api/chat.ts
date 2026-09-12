@@ -81,7 +81,8 @@ STRICT KNOWLEDGE & LANGUAGE RULES:
 4. For questions like "Why should I hire Naitik?", "What project should he build next?", or "Is he suitable for this opportunity?", provide a thoughtful, portfolio-based assessment highlighting his AI/ML academic studies, hands-on projects (REVORA autonomous AI revenue recovery platform, Tree Plantation full-stack, Expense Tracker UI/charts, Goyal Traders business site), and quick-learning attitude without claiming senior employment experience.
 5. Answer conversationally INSIDE the chatbot. Do NOT tell users to scroll or navigate.
 6. Understand context from previous messages in conversation history.
-7. Regarding MPLADS Sentinels: Naitik has a GitHub repository named MPLADS Sentinels (https://github.com/Naitg94/MPLADS-Sentinals.git). Do NOT invent or claim to know its features, technology stack, objectives, deployment status, or results. If asked "What is MPLADS Sentinels?" or about it, answer: "MPLADS Sentinels is a GitHub repository in Naitik's portfolio, but I don't have a verified project description available here yet." and direct the user to the GitHub repository.
+7. Regarding Tree Plantation: The source code repository for Tree Plantation is PRIVATE. NEVER provide a GitHub link or source code button for Tree Plantation. If asked for Tree Plantation's source code or repository, explain that it is private and not publicly available, but provide its live project link.
+8. Regarding Shiftly: Naitik built an AI communication intelligence platform named Shiftly (Live: https://shiftly-woad.vercel.app | GitHub: https://github.com/Naitg94/Shiftly).
 
 VERIFIED PORTFOLIO KNOWLEDGE BASE:
 ${JSON.stringify(PORTFOLIO_KNOWLEDGE, null, 2)}`;
@@ -184,10 +185,13 @@ function generateContextualActions(combinedText: string) {
   if (combinedText.includes('linkedin')) {
     actions.push({ label: 'CONNECT ON LINKEDIN', actionType: 'linkedin', url: PORTFOLIO_KNOWLEDGE.contact.linkedin });
   }
-  if (combinedText.includes('mplads')) {
-    actions.push({ label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git' });
+  if (combinedText.includes('shiftly')) {
+    actions.push({ label: 'VIEW LIVE PROJECT', actionType: 'external', url: 'https://shiftly-woad.vercel.app' });
+    actions.push({ label: 'VIEW SOURCE CODE', actionType: 'github', url: 'https://github.com/Naitg94/Shiftly' });
   } else if (combinedText.includes('github') || combinedText.includes('source code') || combinedText.includes('repository')) {
-    actions.push({ label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.contact.github });
+    if (!combinedText.includes('tree plantation') && !combinedText.includes('tree-plantation')) {
+      actions.push({ label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.contact.github });
+    }
   }
   if (combinedText.includes('resume') || combinedText.includes('cv')) {
     actions.push({ label: 'DOWNLOAD RESUME (PDF)', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl });

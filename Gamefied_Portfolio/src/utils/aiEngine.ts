@@ -132,10 +132,10 @@ class AIEngine {
 Ask me any natural question about Naitik's portfolio:
 • "Who is Naitik?"
 • "Tell me about REVORA"
-• "Open Revora"
+• "Tell me about Shiftly"
+• "Compare Shiftly and Tree Plantation"
 • "Show me his projects"
 • "Which project uses FastAPI and Next.js?"
-• "Compare REVORA and Tree Plantation"
 • "What technologies does he work with?"
 • "What is he currently studying?"
 • "Why should I hire Naitik?"
@@ -198,18 +198,43 @@ Key Portfolio Strengths:
       };
     }
 
-    // 5. MPLADS SENTINELS INTENT (e.g. "What is MPLADS Sentinels?", "Open MPLADS Sentinels", "Show me MPLADS Sentinels", "Show me the MPLADS GitHub", "Open the MPLADS repository")
-    if (lower.includes('mplads')) {
+    // 5. TREE PLANTATION SOURCE CODE INQUIRY INTENT
+    if (
+      (lower.includes('tree plantation') || lower.includes('tree-plantation')) &&
+      (lower.includes('github') || lower.includes('source') || lower.includes('repo') || lower.includes('code'))
+    ) {
       return {
-        text: "MPLADS Sentinels is a GitHub repository in Naitik's portfolio, but I don't have a verified project description available here yet.",
+        text: `The source code repository for Tree Plantation is private and not publicly available. However, the project is deployed live and fully accessible to explore:`,
         type: 'info',
         actions: [
-          { label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git' },
+          { label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
         ],
       };
     }
 
-    // 6. RESUME INTENT
+    // 6. SHIFTLY SPECIFIC INTENT (e.g. "Tell me about Shiftly", "What is Shiftly?", "Show me Shiftly", "Open Shiftly", "Show me the Shiftly GitHub", "Open the Shiftly repository")
+    if (lower.includes('shiftly')) {
+      return {
+        text: `SHIFTLY is an AI-powered communication intelligence platform designed to turn multi-channel project messages and transcripts into clear, actionable information:
+
+• PURPOSE: Turn long project communications (Slack/Teams threads, chat logs, email chains, or meeting transcripts) into actionable insights and structured project memory ("Find what matters").
+• LIVE PLATFORM: https://shiftly-woad.vercel.app
+• GITHUB REPOSITORY: https://github.com/Naitg94/Shiftly (Public source available)
+• TECH STACK: Next.js, React, TypeScript, Tailwind CSS, AI Intelligence, Vercel.
+• CORE CAPABILITIES:
+  - Communication Intelligence Layer
+  - Conversation analysis with paste and file upload capabilities
+  - Project memory maintenance across communication threads
+  - Responsive modern interface built on Next.js`,
+        type: 'info',
+        actions: [
+          { label: 'VIEW LIVE PROJECT', actionType: 'external', url: 'https://shiftly-woad.vercel.app' },
+          { label: 'VIEW SOURCE CODE', actionType: 'github', url: 'https://github.com/Naitg94/Shiftly' },
+        ],
+      };
+    }
+
+    // 7. RESUME INTENT
     if (lower === 'resume' || lower.includes('resume') || lower.includes('cv')) {
       return {
         text: `You can download Naitik Goyal's official one-page resume PDF directly:`,
@@ -220,20 +245,26 @@ Key Portfolio Strengths:
       };
     }
 
-    // 7. GITHUB INTENT
+    // 8. GITHUB INTENT
     if (lower === 'github' || lower.includes('github') || lower.includes('repository') || lower.includes('source code')) {
       return {
-        text: `Explore Naitik's repositories and project code on GitHub: ${PORTFOLIO_KNOWLEDGE.contact.github}`,
+        text: `Explore Naitik's public repositories and project code on GitHub: ${PORTFOLIO_KNOWLEDGE.contact.github}
+
+• REVORA: https://github.com/NaitG94/Revora (PUBLIC SOURCE AVAILABLE)
+• SHIFTLY: https://github.com/Naitg94/Shiftly (PUBLIC SOURCE AVAILABLE)
+• EXPENSE TRACKER: https://github.com/Naitg94/Expense-Tracker-v2-.git (PUBLIC SOURCE AVAILABLE)
+• GOYAL TRADERS: https://github.com/Naitg94/Goyal-Traders-2.git (PUBLIC SOURCE AVAILABLE)
+• Note: Tree Plantation source repository is private and not publicly available.`,
         type: 'info',
         actions: [
           { label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.contact.github },
           { label: 'VIEW REVORA REPO', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl },
-          { label: 'MPLADS SENTINELS REPO', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git' },
+          { label: 'VIEW SHIFTLY REPO', actionType: 'github', url: 'https://github.com/Naitg94/Shiftly' },
         ],
       };
     }
 
-    // 7. LINKEDIN INTENT
+    // 9. LINKEDIN INTENT
     if (lower === 'linkedin' || lower.includes('linkedin')) {
       return {
         text: `Connect with Naitik Goyal professionally on LinkedIn: ${PORTFOLIO_KNOWLEDGE.contact.linkedin}`,
@@ -244,7 +275,7 @@ Key Portfolio Strengths:
       };
     }
 
-    // 8. CONTACT INTENT
+    // 10. CONTACT INTENT
     if (lower === 'contact' || lower.includes('email') || lower.includes('contact') || lower.includes('reach out')) {
       return {
         text: `You can reach Naitik Goyal directly via email or LinkedIn:
@@ -260,21 +291,46 @@ Key Portfolio Strengths:
       };
     }
 
-    // 9. PROJECT COMPARISONS & SUPABASE / FASTAPI INTENT
-    if (lower.includes('compare') && (lower.includes('revora') || lower.includes('tree') || lower.includes('expense') || lower.includes('project'))) {
-      return {
-        text: `Technical comparison of Naitik's featured projects:
+    // 11. PROJECT COMPARISONS & REPO AVAILABILITY INTENT
+    if (
+      lower.includes('compare') ||
+      lower.includes('live demo') ||
+      lower.includes('public github') ||
+      lower.includes('which project has')
+    ) {
+      if (lower.includes('shiftly') || (lower.includes('tree') && lower.includes('compare'))) {
+        return {
+          text: `Comparison between Shiftly and Tree Plantation:
 
-• REVORA: An enterprise AI FinOps & Revenue Recovery platform built with Next.js, FastAPI, PostgreSQL/Supabase, AI Risk Engine, and Voice Copilot. Live at https://revora-fawn.vercel.app/.
+• SHIFTLY: An AI-powered communication intelligence platform built with Next.js, React, TypeScript, and Tailwind CSS. Turns lengthy conversations into structured project memory.
+  - Live Demo: https://shiftly-woad.vercel.app (PUBLICLY AVAILABLE)
+  - GitHub Repository: https://github.com/Naitg94/Shiftly (PUBLIC SOURCE AVAILABLE)
+
 • TREE PLANTATION: A sustainability-focused full-stack web application built with TypeScript, Supabase, and Vercel.
-• EXPENSE TRACKER: A client-side personal finance tool built with JavaScript, HTML, and CSS focused on interactive analytics, custom category dashboards, and spending heatmaps.
+  - Live Demo: https://tree-plantation-xi.vercel.app/ (PUBLICLY AVAILABLE)
+  - GitHub Repository: SOURCE NOT PUBLICLY AVAILABLE (Private Repository)`,
+          type: 'info',
+          actions: [
+            { label: 'VIEW LIVE PROJECT', actionType: 'external', url: 'https://shiftly-woad.vercel.app' },
+            { label: 'VIEW SOURCE CODE', actionType: 'github', url: 'https://github.com/Naitg94/Shiftly' },
+            { label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
+          ],
+        };
+      }
 
-REVORA represents his most advanced full-stack & AI systems architecture, while Tree Plantation and Expense Tracker showcase frontend/backend integration and UI analytics.`,
+      return {
+        text: `Technical comparison and public source availability for Naitik's projects:
+
+• REVORA: Autonomous AI Revenue Recovery Platform (Live: https://revora-fawn.vercel.app/ | PUBLIC SOURCE AVAILABLE)
+• SHIFTLY: AI Communication Intelligence Platform (Live: https://shiftly-woad.vercel.app | PUBLIC SOURCE AVAILABLE)
+• TREE PLANTATION: Sustainability Web Application (Live: https://tree-plantation-xi.vercel.app/ | SOURCE NOT PUBLICLY AVAILABLE)
+• EXPENSE TRACKER: Personal Finance Tool (Live: https://naitg94.github.io/Expense-Tracker/ | PUBLIC SOURCE AVAILABLE)
+• GOYAL TRADERS: Business Website (Live: https://naitg94.github.io/Goyal-Traders-2/ | PUBLIC SOURCE AVAILABLE)`,
         type: 'info',
         actions: [
           { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
+          { label: 'SHIFTLY (LIVE)', actionType: 'external', url: 'https://shiftly-woad.vercel.app' },
           { label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
-          { label: 'EXPENSE TRACKER (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl },
         ],
       };
     }
@@ -290,7 +346,7 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
       };
     }
 
-    // 11. PROJECTS INTENT ("Show me his projects", "What projects has he built?")
+    // 12. PROJECTS INTENT ("Show me his projects", "What projects has he built?")
     if (
       lower === 'projects' ||
       lower.includes('project') ||
@@ -299,20 +355,20 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
       lower.includes('application')
     ) {
       return {
-        text: `Naitik's portfolio includes featured projects and repositories:
+        text: `Naitik's portfolio includes 5 verified projects:
 
 1. REVORA — Autonomous AI Revenue Recovery Platform (Next.js, FastAPI, Supabase, AI Risk Engine, Voice Copilot). Live: https://revora-fawn.vercel.app/
-2. TREE PLANTATION — Sustainability full-stack web app (TypeScript, Supabase, Vercel). Live: https://tree-plantation-xi.vercel.app/
+2. TREE PLANTATION — Sustainability full-stack web app (TypeScript, Supabase, Vercel). Live: https://tree-plantation-xi.vercel.app/ (Source code repository is private)
 3. EXPENSE TRACKER — Personal finance application (JavaScript, HTML, CSS, Data Visualization charts). Live: https://naitg94.github.io/Expense-Tracker/
 4. GOYAL TRADERS — Real-world business website (HTML, CSS, JavaScript). Live: https://naitg94.github.io/Goyal-Traders-2/
-5. MPLADS SENTINELS — GitHub Repository: https://github.com/Naitg94/MPLADS-Sentinals.git`,
+5. SHIFTLY — AI Communication Intelligence Platform (Next.js, React, Tailwind CSS). Live: https://shiftly-woad.vercel.app | GitHub: https://github.com/Naitg94/Shiftly`,
         type: 'info',
         actions: [
           { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
+          { label: 'SHIFTLY (LIVE)', actionType: 'external', url: 'https://shiftly-woad.vercel.app' },
           { label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl },
           { label: 'EXPENSE TRACKER (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl },
           { label: 'GOYAL TRADERS (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[3].liveUrl },
-          { label: 'MPLADS GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git' },
         ],
       };
     }
@@ -378,10 +434,11 @@ REVORA represents his most advanced full-stack & AI systems architecture, while 
       return {
         text: `Naitik Goyal is an AI/ML Student & Developer based in Bhilai, Chhattisgarh, India.
 
-He is in his 2nd Semester studying B.Tech in Computer Science Engineering (AI/ML) at Shri Shankaracharya Technical Campus (SSTC). He builds intelligent software products, such as REVORA (Autonomous AI Revenue Recovery Platform) and Tree Plantation.`,
+He is in his 2nd Semester studying B.Tech in Computer Science Engineering (AI/ML) at Shri Shankaracharya Technical Campus (SSTC). He builds intelligent software products, such as REVORA (Autonomous AI Revenue Recovery Platform), Shiftly (AI Communication Intelligence), and Tree Plantation.`,
         type: 'info',
         actions: [
           { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
+          { label: 'VIEW SHIFTLY (LIVE)', actionType: 'external', url: 'https://shiftly-woad.vercel.app' },
           { label: 'SEND EMAIL', actionType: 'email', url: `mailto:${PORTFOLIO_KNOWLEDGE.contact.email}` },
           { label: 'CONNECT ON LINKEDIN', actionType: 'linkedin', url: PORTFOLIO_KNOWLEDGE.contact.linkedin },
         ],
@@ -390,10 +447,11 @@ He is in his 2nd Semester studying B.Tech in Computer Science Engineering (AI/ML
 
     // General fallback
     return {
-      text: `Naitik Goyal is a 2nd Semester B.Tech CSE (AI/ML) student at SSTC building projects like REVORA (Autonomous AI Revenue Recovery Platform) and Tree Plantation. How can I help you explore his portfolio?`,
+      text: `Naitik Goyal is a 2nd Semester B.Tech CSE (AI/ML) student at SSTC building projects like REVORA (Autonomous AI Revenue Recovery Platform), Shiftly (AI Communication Intelligence), and Tree Plantation. How can I help you explore his portfolio?`,
       type: 'info',
       actions: [
         { label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl },
+        { label: 'VIEW SHIFTLY (LIVE)', actionType: 'external', url: 'https://shiftly-woad.vercel.app' },
         { label: 'SEND EMAIL', actionType: 'email', url: `mailto:${PORTFOLIO_KNOWLEDGE.contact.email}` },
         { label: 'DOWNLOAD RESUME (PDF)', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl },
       ],

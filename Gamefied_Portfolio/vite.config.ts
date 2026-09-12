@@ -1,5 +1,6 @@
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
+// @ts-expect-error - tailwindcss vite plugin type declarations
 import tailwindcss from '@tailwindcss/vite';
 import { PORTFOLIO_KNOWLEDGE } from './src/data/knowledgeBase.ts';
 
@@ -95,7 +96,8 @@ export default defineConfig(({ mode }) => {
 You are NAITIK.OS, an intelligent AI portfolio assistant for Naitik Goyal.
 
 Answer using ONLY verified information from Naitik's portfolio.
-Regarding MPLADS Sentinels: Naitik has a GitHub repository named MPLADS Sentinels (https://github.com/Naitg94/MPLADS-Sentinals.git). You must NOT claim to know its features, technology stack, objectives, deployment status, or results. If asked "What is MPLADS Sentinels?" or about it, answer: "MPLADS Sentinels is a GitHub repository in Naitik's portfolio, but I don't have a verified project description available here yet." and direct the user to the GitHub repository.
+Regarding Tree Plantation: The source code repository for Tree Plantation is PRIVATE. NEVER provide a GitHub link or source code button for Tree Plantation. If asked for Tree Plantation's source code or repository, explain that it is private and not publicly available, but provide its live project link.
+Regarding Shiftly: Naitik built an AI communication intelligence platform named Shiftly (Live: https://shiftly-woad.vercel.app | GitHub: https://github.com/Naitg94/Shiftly).
 
 VERIFIED PORTFOLIO KNOWLEDGE:
 ${JSON.stringify(PORTFOLIO_KNOWLEDGE, null, 2)}
@@ -250,22 +252,29 @@ function generateContextualActions(
     });
   }
 
-  if (combinedText.includes('mplads')) {
+  if (combinedText.includes('shiftly')) {
     actions.push({
-      label: 'OPEN GITHUB',
+      label: 'VIEW LIVE PROJECT',
+      actionType: 'external',
+      url: 'https://shiftly-woad.vercel.app',
+    });
+    actions.push({
+      label: 'VIEW SOURCE CODE',
       actionType: 'github',
-      url: PORTFOLIO_KNOWLEDGE.projects[4]?.githubUrl || 'https://github.com/Naitg94/MPLADS-Sentinals.git',
+      url: 'https://github.com/Naitg94/Shiftly',
     });
   } else if (
     combinedText.includes('github') ||
     combinedText.includes('source code') ||
     combinedText.includes('repository')
   ) {
-    actions.push({
-      label: 'OPEN GITHUB',
-      actionType: 'github',
-      url: PORTFOLIO_KNOWLEDGE.contact.github,
-    });
+    if (!combinedText.includes('tree plantation') && !combinedText.includes('tree-plantation')) {
+      actions.push({
+        label: 'OPEN GITHUB',
+        actionType: 'github',
+        url: PORTFOLIO_KNOWLEDGE.contact.github,
+      });
+    }
   }
 
   if (

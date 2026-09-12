@@ -56,10 +56,9 @@ export const PORTFOLIO_KNOWLEDGE = {
       name: 'TREE PLANTATION',
       category: 'Full-Stack Web Application',
       description: 'A digital platform supporting tree plantation initiatives and creating a transparent, engaging experience for users.',
-      highlights: 'Clean interface, frontend/backend integration, user data management, API integration, sustainability theme.',
+      highlights: 'Clean interface, frontend/backend integration, user data management, API integration, sustainability theme. Live deployment available; source code repository is private and not publicly available.',
       technologies: ['TypeScript', 'Supabase', 'Vercel', 'Web Technologies'],
-      liveUrl: 'https://tree-plantation-xi.vercel.app/',
-      githubUrl: 'https://github.com/Naitg94/tree-plantation.git'
+      liveUrl: 'https://tree-plantation-xi.vercel.app/'
     },
     {
       id: 'expense-tracker',
@@ -84,15 +83,15 @@ export const PORTFOLIO_KNOWLEDGE = {
       githubUrl: 'https://github.com/Naitg94/Goyal-Traders-2.git'
     },
     {
-      id: 'mplads-sentinels',
+      id: 'shiftly',
       code: 'PROJECT 05',
-      name: 'MPLADS Sentinels',
-      category: 'GitHub Repository',
-      description: "A GitHub repository in Naitik's portfolio. No verified project description available yet.",
-      highlights: 'Source code repository reference.',
-      technologies: [],
-      liveUrl: '',
-      githubUrl: 'https://github.com/Naitg94/MPLADS-Sentinals.git'
+      name: 'SHIFTLY',
+      category: 'Communication Intelligence Platform',
+      description: 'An AI-powered communication intelligence layer that analyzes long project conversations, extracts critical action points, and maintains structured project memory.',
+      highlights: 'AI-powered communication intelligence, message analysis, project memory, Next.js, public GitHub repository, live Vercel deployment.',
+      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AI Intelligence', 'Vercel'],
+      liveUrl: 'https://shiftly-woad.vercel.app',
+      githubUrl: 'https://github.com/Naitg94/Shiftly'
     }
   ],
   achievements: [

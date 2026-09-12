@@ -9,7 +9,7 @@ export interface Project {
   highlights?: string[];
   technologies?: string[];
   liveUrl?: string;
-  githubUrl: string;
+  githubUrl?: string;
   themeColor: string;
   accentBg: string;
 }
@@ -158,7 +158,6 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ['TypeScript', 'Supabase', 'Vercel', 'Web Development Technologies'],
     liveUrl: 'https://tree-plantation-xi.vercel.app/',
-    githubUrl: 'https://github.com/Naitg94/tree-plantation.git',
     themeColor: '#35E5FF',
     accentBg: 'from-emerald-950/40 via-cyan-950/20 to-slate-950'
   },
@@ -204,13 +203,25 @@ export const PROJECTS: Project[] = [
     accentBg: 'from-violet-950/40 via-purple-950/20 to-slate-950'
   },
   {
-    id: 'mplads-sentinels',
+    id: 'shiftly',
     code: 'PROJECT 05',
-    name: 'MPLADS SENTINELS',
-    category: 'GITHUB REPOSITORY',
-    githubUrl: 'https://github.com/Naitg94/MPLADS-Sentinals.git',
+    name: 'SHIFTLY',
+    category: 'COMMUNICATION INTELLIGENCE PLATFORM',
+    status: 'COMPLETED',
+    objective: 'Build an AI-powered communication intelligence platform designed to turn multi-channel project messages and transcripts into clear, actionable information.',
+    description: 'An AI-powered communication intelligence layer that analyzes long project conversations, extracts critical action points, and maintains structured project memory.',
+    highlights: [
+      'Communication Intelligence Layer ("Find what matters")',
+      'Transforms lengthy conversations into clear, actionable information',
+      'Analyze Communication & Project Memory modules',
+      'Interactive conversation analysis with paste & file upload capabilities',
+      'Responsive modern interface built with Next.js & Tailwind CSS'
+    ],
+    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AI Intelligence', 'Vercel'],
+    liveUrl: 'https://shiftly-woad.vercel.app',
+    githubUrl: 'https://github.com/Naitg94/Shiftly',
     themeColor: '#35E5FF',
-    accentBg: 'from-cyan-950/40 via-slate-950 to-slate-950'
+    accentBg: 'from-blue-950/40 via-cyan-950/20 to-slate-950'
   }
 ];
 

@@ -258,7 +258,7 @@ export const ProjectDatabase: React.FC = () => {
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>
-                      {selectedProject.id === 'revora'
+                      {selectedProject.id === 'revora' || selectedProject.id === 'shiftly'
                         ? '▶ VIEW LIVE PROJECT'
                         : selectedProject.id === 'tree-plantation'
                         ? '▶ LAUNCH PROJECT'
@@ -272,7 +272,7 @@ export const ProjectDatabase: React.FC = () => {
                 {/* GitHub Source Code Button */}
                 {selectedProject.githubUrl && (
                   <button
-                    onClick={() => handleLaunch(selectedProject.githubUrl)}
+                    onClick={() => handleLaunch(selectedProject.githubUrl!)}
                     className={`w-full sm:w-auto px-6 py-3 rounded-lg font-bold text-xs tracking-wider transition-all flex items-center justify-center gap-2 cursor-pointer ${
                       !selectedProject.liveUrl
                         ? 'bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] hover:shadow-[0_0_25px_#35E5FF]'
@@ -281,7 +281,7 @@ export const ProjectDatabase: React.FC = () => {
                   >
                     <GithubIcon className={`w-4 h-4 ${!selectedProject.liveUrl ? 'text-[#05070D]' : 'text-[#35E5FF]'}`} />
                     <span>
-                      &lt; &gt; {selectedProject.id === 'mplads-sentinels' ? 'VIEW SOURCE CODE' : selectedProject.id === 'revora' ? 'VIEW ON GITHUB' : 'VIEW SOURCE'}
+                      &lt; &gt; {selectedProject.id === 'shiftly' ? 'VIEW SOURCE CODE' : selectedProject.id === 'revora' ? 'VIEW ON GITHUB' : 'VIEW SOURCE'}
                     </span>
                   </button>
                 )}
