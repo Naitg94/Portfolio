@@ -46,7 +46,7 @@ Ask me any natural question below.`,
     'Who is Naitik?',
     'Why should I hire Naitik?',
     'Show me his projects',
-    'Compare Shiftly and Tree Plantation',
+    'Compare Shiftly and ',
     'Based on his current portfolio, what project should he build next?',
     'Which project uses Supabase?',
   ];
