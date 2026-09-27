@@ -68,7 +68,7 @@ export const PORTFOLIO_KNOWLEDGE = {
       description: 'A responsive expense management application to track spending, view financial insights, heatmaps, and custom categories.',
       highlights: 'Expense tracking, custom categories/colors, interactive charts, dashboards, light/dark theme.',
       technologies: ['JavaScript', 'HTML', 'CSS', 'Data Visualization'],
-      liveUrl: 'https://naitg94.github.io/Expense-Tracker/',
+      liveUrl: 'https://expense-tracker-six-nu-33.vercel.app/',
       githubUrl: 'https://github.com/Naitg94/Expense-Tracker-v2-.git'
     },
     {
