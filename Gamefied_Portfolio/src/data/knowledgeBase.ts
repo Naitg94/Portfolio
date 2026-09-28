@@ -48,7 +48,7 @@ export const PORTFOLIO_KNOWLEDGE = {
       highlights: '4-Level Policy Guardrails (Level 1 Autonomous to Level 4 Circuit Breakers), Multilingual Voice Copilot ("Talk to REVORA" in English/Hindi/Hinglish), AI Promise to Pay (P2P) NLP tracking, Real-time Gateway Ingestion, Human-in-the-Loop Governance, Cryptographic Audit Trail, Accessible Recharts Visualizations.',
       technologies: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL/Supabase', 'React Query', 'Tailwind CSS', 'Recharts', 'JWT/RBAC', 'AI Risk Engine', 'Voice Copilot'],
       liveUrl: 'https://revora-fawn.vercel.app/',
-      githubUrl: 'https://github.com/NaitG94/Revora'
+      githubUrl: 'https://github.com/Naitg94/Revora'
     },
     {
       id: 'tree-plantation',
@@ -80,7 +80,7 @@ export const PORTFOLIO_KNOWLEDGE = {
       highlights: 'Responsive design, user-friendly navigation, real-world business exposure, professional presence.',
       technologies: ['HTML', 'CSS', 'JavaScript'],
       liveUrl: 'https://naitg94.github.io/Goyal-Traders-2/',
-      githubUrl: 'https://github.com/Naitg94/Goyal-Traders-2.git'
+      githubUrl: 'https://github.com/Naitg94/Goyal-Traders-2'
     },
     {
       id: 'shiftly',
