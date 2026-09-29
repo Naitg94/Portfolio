@@ -69,7 +69,7 @@ export const PORTFOLIO_KNOWLEDGE = {
       highlights: 'Expense tracking, custom categories/colors, interactive charts, dashboards, light/dark theme.',
       technologies: ['JavaScript', 'HTML', 'CSS', 'Data Visualization'],
       liveUrl: 'https://expense-tracker-six-nu-33.vercel.app/',
-      githubUrl: 'https://github.com/Naitg94/Expense-Tracker'
+      githubUrl: 'https://github.com/Naitg94/Expense-Tracker.git'
     },
     {
       id: 'goyal-traders',

@@ -252,7 +252,7 @@ Key Portfolio Strengths:
 
 • REVORA: https://github.com/NaitG94/Revora (PUBLIC SOURCE AVAILABLE)
 • SHIFTLY: https://github.com/Naitg94/Shiftly (PUBLIC SOURCE AVAILABLE)
-• EXPENSE TRACKER: https://github.com/Naitg94/Expense-Tracker-v2-.git (PUBLIC SOURCE AVAILABLE)
+• EXPENSE TRACKER: https://github.com/Naitg94/Expense-Tracker.git (PUBLIC SOURCE AVAILABLE)
 • GOYAL TRADERS: https://github.com/Naitg94/Goyal-Traders-2.git (PUBLIC SOURCE AVAILABLE)
 • Note: Tree Plantation source repository is private and not publicly available.`,
         type: 'info',
@@ -324,7 +324,7 @@ Key Portfolio Strengths:
 • REVORA: Autonomous AI Revenue Recovery Platform (Live: https://revora-fawn.vercel.app/ | PUBLIC SOURCE AVAILABLE)
 • SHIFTLY: AI Communication Intelligence Platform (Live: https://shiftly-woad.vercel.app | PUBLIC SOURCE AVAILABLE)
 • TREE PLANTATION: Sustainability Web Application (Live: https://tree-plantation-xi.vercel.app/ | SOURCE NOT PUBLICLY AVAILABLE)
-• EXPENSE TRACKER: Personal Finance Tool (Live: https://naitg94.github.io/Expense-Tracker/ | PUBLIC SOURCE AVAILABLE)
+• EXPENSE TRACKER: Personal Finance Tool (Live: https://expense-tracker-six-nu-33.vercel.app/ | PUBLIC SOURCE AVAILABLE)
 • GOYAL TRADERS: Business Website (Live: https://naitg94.github.io/Goyal-Traders-2/ | PUBLIC SOURCE AVAILABLE)`,
         type: 'info',
         actions: [
@@ -359,7 +359,7 @@ Key Portfolio Strengths:
 
 1. REVORA — Autonomous AI Revenue Recovery Platform (Next.js, FastAPI, Supabase, AI Risk Engine, Voice Copilot). Live: https://revora-fawn.vercel.app/
 2. TREE PLANTATION — Sustainability full-stack web app (TypeScript, Supabase, Vercel). Live: https://tree-plantation-xi.vercel.app/ (Source code repository is private)
-3. EXPENSE TRACKER — Personal finance application (JavaScript, HTML, CSS, Data Visualization charts). Live: https://naitg94.github.io/Expense-Tracker/
+3. EXPENSE TRACKER — Personal finance application (JavaScript, HTML, CSS, Data Visualization charts). Live: https://expense-tracker-six-nu-33.vercel.app/
 4. GOYAL TRADERS — Real-world business website (HTML, CSS, JavaScript). Live: https://naitg94.github.io/Goyal-Traders-2/
 5. SHIFTLY — AI Communication Intelligence Platform (Next.js, React, Tailwind CSS). Live: https://shiftly-woad.vercel.app | GitHub: https://github.com/Naitg94/Shiftly`,
         type: 'info',

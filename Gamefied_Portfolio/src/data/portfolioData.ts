@@ -178,7 +178,7 @@ export const PROJECTS: Project[] = [
     ],
     technologies: ['JavaScript', 'HTML', 'CSS', 'Data Visualization'],
     liveUrl: 'https://expense-tracker-six-nu-33.vercel.app/',
-    githubUrl: 'https://github.com/Naitg94/Expense-Tracker-v2-.git',
+    githubUrl: 'https://github.com/Naitg94/Expense-Tracker.git',
     themeColor: '#4DA3FF',
     accentBg: 'from-blue-950/40 via-indigo-950/20 to-slate-950'
   },

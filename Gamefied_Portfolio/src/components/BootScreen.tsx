@@ -7,18 +7,18 @@ interface BootScreenProps {
   onBootComplete: () => void;
 }
 
+const STEPS = [
+  'Initializing Core Kernel...',
+  'Loading Developer Profile...',
+  'Loading Project Database...',
+  'Loading Skill Matrix...',
+  'Initializing Interactive Systems...'
+];
+
 export const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
   const [progress, setProgress] = useState(0);
   const [currentStep, setCurrentStep] = useState(0);
   const [isReady, setIsReady] = useState(false);
-
-  const steps = [
-    'Initializing Core Kernel...',
-    'Loading Developer Profile...',
-    'Loading Project Database...',
-    'Loading Skill Matrix...',
-    'Initializing Interactive Systems...'
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -33,8 +33,8 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
         
         // Update step based on progress
         const stepIdx = Math.min(
-          Math.floor((next / 100) * steps.length),
-          steps.length - 1
+          Math.floor((next / 100) * STEPS.length),
+          STEPS.length - 1
         );
         setCurrentStep(stepIdx);
         soundFx.playBootStep();
@@ -103,7 +103,7 @@ export const BootScreen: React.FC<BootScreenProps> = ({ onBootComplete }) => {
 
           {/* Progress Logs */}
           <div className="space-y-3 mb-6 text-xs text-slate-300">
-            {steps.slice(0, currentStep + 1).map((step, idx) => (
+            {STEPS.slice(0, currentStep + 1).map((step, idx) => (
               <div key={idx} className="flex items-center justify-between">
                 <span className="flex items-center gap-2">
                   <span className="text-[#35E5FF]">›</span> {step}
