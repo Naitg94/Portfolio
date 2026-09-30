@@ -190,10 +190,10 @@ export const ProjectDatabase: React.FC = () => {
                     <ExternalLink className="w-4 h-4" />
                     <span>
                       {selectedProject.id === 'tree-plantation'
-                        ? 'â–¶ LAUNCH PROJECT'
+                        ? 'LAUNCH PROJECT'
                         : selectedProject.id === 'expense-tracker'
-                        ? 'â–¶ EXPLORE APPLICATION'
-                        : 'â–¶ VISIT PROJECT'}
+                        ? 'EXPLORE APPLICATION'
+                        : 'VISIT PROJECT'}
                     </span>
                   </button>
                 )}
