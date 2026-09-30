@@ -3,11 +3,8 @@ import { ParticleBackground } from './components/ParticleBackground';
 import { Navigation } from './components/Navigation';
 import { Hero } from './components/Hero';
 import { PlayerProfile } from './components/PlayerProfile';
-import { Journey } from './components/Journey';
-import { SkillUniverse } from './components/SkillUniverse';
 import { ProjectDatabase } from './components/ProjectDatabase';
 import { AchievementVault } from './components/AchievementVault';
-import { EducationNode } from './components/EducationNode';
 import { ContactTerminal } from './components/ContactTerminal';
 import { Footer } from './components/Footer';
 
@@ -39,7 +36,7 @@ export function App() {
   };
 
   useEffect(() => {
-    const sections = ['hero', 'profile', 'journey', 'skills', 'projects', 'achievements', 'education', 'contact'];
+    const sections = ['hero', 'profile', 'projects', 'achievements', 'contact'];
 
     const observerOptions = {
       root: null,
@@ -76,11 +73,8 @@ export function App() {
       <main className="relative z-10">
         <Hero onNavigate={handleNavigate} />
         <PlayerProfile />
-        <Journey />
-        <SkillUniverse />
         <ProjectDatabase />
         <AchievementVault />
-        <EducationNode />
         <ContactTerminal />
       </main>
 

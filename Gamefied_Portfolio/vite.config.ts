@@ -97,7 +97,6 @@ You are NAITIK.OS, an intelligent AI portfolio assistant for Naitik Goyal.
 
 Answer using ONLY verified information from Naitik's portfolio.
 Regarding Tree Plantation: The source code repository for Tree Plantation is PRIVATE. NEVER provide a GitHub link or source code button for Tree Plantation. If asked for Tree Plantation's source code or repository, explain that it is private and not publicly available, but provide its live project link.
-Regarding Shiftly: Naitik built an AI communication intelligence platform named Shiftly (Live: https://shiftly-woad.vercel.app | GitHub: https://github.com/Naitg94/Shiftly).
 
 VERIFIED PORTFOLIO KNOWLEDGE:
 ${JSON.stringify(PORTFOLIO_KNOWLEDGE, null, 2)}
@@ -252,18 +251,7 @@ function generateContextualActions(
     });
   }
 
-  if (combinedText.includes('shiftly')) {
-    actions.push({
-      label: 'VIEW LIVE PROJECT',
-      actionType: 'external',
-      url: 'https://shiftly-woad.vercel.app',
-    });
-    actions.push({
-      label: 'VIEW SOURCE CODE',
-      actionType: 'github',
-      url: 'https://github.com/Naitg94/Shiftly',
-    });
-  } else if (
+  if (
     combinedText.includes('github') ||
     combinedText.includes('source code') ||
     combinedText.includes('repository')
@@ -277,35 +265,11 @@ function generateContextualActions(
     }
   }
 
-  if (
-    combinedText.includes('resume') ||
-    combinedText.includes('cv')
-  ) {
-    actions.push({
-      label: 'DOWNLOAD RESUME (PDF)',
-      actionType: 'resume',
-      url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl,
-    });
-  }
-
-  if (combinedText.includes('revora')) {
-    actions.push({
-      label: 'OPEN REVORA',
-      actionType: 'external',
-      url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl,
-    });
-    actions.push({
-      label: 'REVORA GITHUB',
-      actionType: 'github',
-      url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl,
-    });
-  }
-
   if (combinedText.includes('tree plantation')) {
     actions.push({
       label: 'TREE PLANTATION (LIVE)',
       actionType: 'external',
-      url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl,
+      url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl,
     });
   }
 
@@ -313,7 +277,7 @@ function generateContextualActions(
     actions.push({
       label: 'EXPENSE TRACKER (LIVE)',
       actionType: 'external',
-      url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl,
+      url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl,
     });
   }
 
@@ -321,7 +285,7 @@ function generateContextualActions(
     actions.push({
       label: 'GOYAL TRADERS (LIVE)',
       actionType: 'external',
-      url: PORTFOLIO_KNOWLEDGE.projects[3].liveUrl,
+      url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl,
     });
   }
 

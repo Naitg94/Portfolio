@@ -78,11 +78,10 @@ STRICT KNOWLEDGE & LANGUAGE RULES:
 1. Do NOT invent or exaggerate facts. Avoid unsupported statements like "he is an expert", "he has extensive professional experience", or "senior developer".
 2. Use careful, portfolio-supported phrasing such as "Naitik's portfolio demonstrates work with...", "Naitik is currently learning and building...", "Based on his listed projects...".
 3. If a question asks for something not in the portfolio, say: "I don't have verified information about that in Naitik's portfolio."
-4. For questions like "Why should I hire Naitik?", "What project should he build next?", or "Is he suitable for this opportunity?", provide a thoughtful, portfolio-based assessment highlighting his AI/ML academic studies, hands-on projects (REVORA autonomous AI revenue recovery platform, Tree Plantation full-stack, Expense Tracker UI/charts, Goyal Traders business site), and quick-learning attitude without claiming senior employment experience.
+4. For questions like "Why should I hire Naitik?", "What project should he build next?", or "Is he suitable for this opportunity?", provide a thoughtful, portfolio-based assessment highlighting his AI/ML academic studies, hands-on projects (Tree Plantation full-stack, Expense Tracker UI/charts, Goyal Traders business site), and quick-learning attitude without claiming senior employment experience.
 5. Answer conversationally INSIDE the chatbot. Do NOT tell users to scroll or navigate.
 6. Understand context from previous messages in conversation history.
 7. Regarding Tree Plantation: The source code repository for Tree Plantation is PRIVATE. NEVER provide a GitHub link or source code button for Tree Plantation. If asked for Tree Plantation's source code or repository, explain that it is private and not publicly available, but provide its live project link.
-8. Regarding Shiftly: Naitik built an AI communication intelligence platform named Shiftly (Live: https://shiftly-woad.vercel.app | GitHub: https://github.com/Naitg94/Shiftly).
 
 VERIFIED PORTFOLIO KNOWLEDGE BASE:
 ${JSON.stringify(PORTFOLIO_KNOWLEDGE, null, 2)}`;
@@ -185,29 +184,19 @@ function generateContextualActions(combinedText: string) {
   if (combinedText.includes('linkedin')) {
     actions.push({ label: 'CONNECT ON LINKEDIN', actionType: 'linkedin', url: PORTFOLIO_KNOWLEDGE.contact.linkedin });
   }
-  if (combinedText.includes('shiftly')) {
-    actions.push({ label: 'VIEW LIVE PROJECT', actionType: 'external', url: 'https://shiftly-woad.vercel.app' });
-    actions.push({ label: 'VIEW SOURCE CODE', actionType: 'github', url: 'https://github.com/Naitg94/Shiftly' });
-  } else if (combinedText.includes('github') || combinedText.includes('source code') || combinedText.includes('repository')) {
+  if (combinedText.includes('github') || combinedText.includes('source code') || combinedText.includes('repository')) {
     if (!combinedText.includes('tree plantation') && !combinedText.includes('tree-plantation')) {
       actions.push({ label: 'OPEN GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.contact.github });
     }
   }
-  if (combinedText.includes('resume') || combinedText.includes('cv')) {
-    actions.push({ label: 'DOWNLOAD RESUME (PDF)', actionType: 'resume', url: PORTFOLIO_KNOWLEDGE.contact.resumeUrl });
-  }
-  if (combinedText.includes('revora')) {
-    actions.push({ label: 'OPEN REVORA', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl });
-    actions.push({ label: 'REVORA GITHUB', actionType: 'github', url: PORTFOLIO_KNOWLEDGE.projects[0].githubUrl });
-  }
   if (combinedText.includes('tree plantation')) {
-    actions.push({ label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl });
+    actions.push({ label: 'TREE PLANTATION (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[0].liveUrl });
   }
   if (combinedText.includes('expense tracker')) {
-    actions.push({ label: 'EXPENSE TRACKER (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl });
+    actions.push({ label: 'EXPENSE TRACKER (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[1].liveUrl });
   }
   if (combinedText.includes('goyal traders')) {
-    actions.push({ label: 'GOYAL TRADERS (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[3].liveUrl });
+    actions.push({ label: 'GOYAL TRADERS (LIVE)', actionType: 'external', url: PORTFOLIO_KNOWLEDGE.projects[2].liveUrl });
   }
   return actions;
 }

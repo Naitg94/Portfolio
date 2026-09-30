@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Volume2, VolumeX, Download, Menu, X, Cpu } from 'lucide-react';
+import { Volume2, VolumeX, Menu, X, Cpu } from 'lucide-react';
 import { soundFx } from '../utils/sound';
 
 interface NavigationProps {
@@ -16,11 +16,8 @@ export const Navigation: React.FC<NavigationProps> = ({
 
   const navItems = [
     { id: 'profile', label: 'PROFILE' },
-    { id: 'journey', label: 'JOURNEY' },
-    { id: 'skills', label: 'SKILLS' },
     { id: 'projects', label: 'PROJECTS' },
     { id: 'achievements', label: 'ACHIEVEMENTS' },
-    { id: 'education', label: 'EDUCATION' },
     { id: 'contact', label: 'CONTACT' },
   ];
 
@@ -84,19 +81,6 @@ export const Navigation: React.FC<NavigationProps> = ({
                 <Volume2 className="w-4 h-4 text-[#35E5FF]" />
               )}
             </button>
-
-            {/* Download Resume Button */}
-            <a
-              href="/Naitik_Goyal_Resume.pdf"
-              download="Naitik_Goyal_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => soundFx.playClick()}
-              className="flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-mono font-semibold bg-[#4DA3FF]/15 text-[#4DA3FF] border border-[#4DA3FF]/30 hover:bg-[#4DA3FF] hover:text-[#05070D] transition-all cursor-pointer"
-            >
-              <Download className="w-3.5 h-3.5" />
-              <span>RESUME</span>
-            </a>
           </div>
         </nav>
       </header>
@@ -112,19 +96,6 @@ export const Navigation: React.FC<NavigationProps> = ({
         </button>
 
         <div className="flex items-center gap-2">
-          {/* Resume PDF Mobile Link */}
-          <a
-            href="/Naitik_Goyal_Resume.pdf"
-            download="Naitik_Goyal_Resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => soundFx.playClick()}
-            className="flex items-center gap-1 px-2.5 py-1 rounded text-xs font-mono bg-[#4DA3FF]/15 text-[#4DA3FF] border border-[#4DA3FF]/30"
-          >
-            <Download className="w-3.5 h-3.5" />
-            <span>PDF</span>
-          </a>
-
           {/* Audio toggle */}
           <button
             onClick={handleAudioToggle}
@@ -167,19 +138,6 @@ export const Navigation: React.FC<NavigationProps> = ({
                 </button>
               );
             })}
-          </div>
-
-          <div className="pt-6 border-t border-[#35E5FF]/20">
-            <a
-              href="/Naitik_Goyal_Resume.pdf"
-              download="Naitik_Goyal_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 py-3 rounded bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] font-bold text-sm"
-            >
-              <Download className="w-4 h-4" />
-              <span>DOWNLOAD RESUME (PDF)</span>
-            </a>
           </div>
         </div>
       )}

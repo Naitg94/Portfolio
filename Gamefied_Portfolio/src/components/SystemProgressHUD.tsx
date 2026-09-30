@@ -10,11 +10,8 @@ export const SystemProgressHUD: React.FC<SystemProgressHUDProps> = ({
 }) => {
   const trackedSections = [
     { id: 'profile', label: 'PROFILE' },
-    { id: 'journey', label: 'JOURNEY' },
-    { id: 'skills', label: 'SKILLS' },
     { id: 'projects', label: 'PROJECTS' },
     { id: 'achievements', label: 'ACHIEVEMENTS' },
-    { id: 'education', label: 'EDUCATION' },
     { id: 'contact', label: 'CONTACT' },
   ];
 

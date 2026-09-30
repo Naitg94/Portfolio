@@ -5,7 +5,7 @@ export interface KnowledgeItem {
   details?: string;
   actions?: Array<{
     label: string;
-    type: 'email' | 'linkedin' | 'github' | 'resume' | 'project';
+    type: 'email' | 'linkedin' | 'github' | 'project';
     url?: string;
     targetId?: string;
   }>;
@@ -25,7 +25,6 @@ export const PORTFOLIO_KNOWLEDGE = {
       'Machine Learning',
       'Software Development',
       'Full-Stack Web Development',
-      'Autonomous AI Platforms & FinOps',
       'AI-Assisted Development',
       'Building Real-World Digital Products'
     ],
@@ -40,19 +39,8 @@ export const PORTFOLIO_KNOWLEDGE = {
   },
   projects: [
     {
-      id: 'revora',
-      code: 'PROJECT 01',
-      name: 'REVORA',
-      category: 'Autonomous AI & Revenue Recovery Platform',
-      description: 'AI-powered revenue recovery and risk operations platform for detecting payment failures, prioritizing financial exposure, automating policy-bounded recovery workflows, and maintaining auditable human approval for high-value actions.',
-      highlights: '4-Level Policy Guardrails (Level 1 Autonomous to Level 4 Circuit Breakers), Multilingual Voice Copilot ("Talk to REVORA" in English/Hindi/Hinglish), AI Promise to Pay (P2P) NLP tracking, Real-time Gateway Ingestion, Human-in-the-Loop Governance, Cryptographic Audit Trail, Accessible Recharts Visualizations.',
-      technologies: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL/Supabase', 'React Query', 'Tailwind CSS', 'Recharts', 'JWT/RBAC', 'AI Risk Engine', 'Voice Copilot'],
-      liveUrl: 'https://revora-fawn.vercel.app/',
-      githubUrl: 'https://github.com/Naitg94/Revora'
-    },
-    {
       id: 'tree-plantation',
-      code: 'PROJECT 02',
+      code: 'PROJECT 01',
       name: 'TREE PLANTATION',
       category: 'Full-Stack Web Application',
       description: 'A digital platform supporting tree plantation initiatives and creating a transparent, engaging experience for users.',
@@ -62,7 +50,7 @@ export const PORTFOLIO_KNOWLEDGE = {
     },
     {
       id: 'expense-tracker',
-      code: 'PROJECT 03',
+      code: 'PROJECT 02',
       name: 'EXPENSE TRACKER',
       category: 'Personal Finance Application',
       description: 'A responsive expense management application to track spending, view financial insights, heatmaps, and custom categories.',
@@ -73,7 +61,7 @@ export const PORTFOLIO_KNOWLEDGE = {
     },
     {
       id: 'goyal-traders',
-      code: 'PROJECT 04',
+      code: 'PROJECT 03',
       name: 'GOYAL TRADERS',
       category: 'Business Website',
       description: 'A professional business website for Goyal Traders showcasing services and enhancing digital accessibility.',
@@ -81,17 +69,6 @@ export const PORTFOLIO_KNOWLEDGE = {
       technologies: ['HTML', 'CSS', 'JavaScript'],
       liveUrl: 'https://naitg94.github.io/Goyal-Traders-2/',
       githubUrl: 'https://github.com/Naitg94/Goyal-Traders-2'
-    },
-    {
-      id: 'shiftly',
-      code: 'PROJECT 05',
-      name: 'SHIFTLY',
-      category: 'Communication Intelligence Platform',
-      description: 'An AI-powered communication intelligence layer that analyzes long project conversations, extracts critical action points, and maintains structured project memory.',
-      highlights: 'AI-powered communication intelligence, message analysis, project memory, Next.js, public GitHub repository, live Vercel deployment.',
-      technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AI Intelligence', 'Vercel'],
-      liveUrl: 'https://shiftly-woad.vercel.app',
-      githubUrl: 'https://github.com/Naitg94/Shiftly'
     }
   ],
   achievements: [
@@ -115,7 +92,6 @@ export const PORTFOLIO_KNOWLEDGE = {
   contact: {
     email: 'goyalnait678@gmail.com',
     github: 'https://github.com/Naitg94',
-    linkedin: 'https://linkedin.com/in/naitik-goyal-843504399',
-    resumeUrl: '/Naitik_Goyal_Resume.pdf'
+    linkedin: 'https://linkedin.com/in/naitik-goyal-843504399'
   }
 };

@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Bot, Mail, Download, CornerDownLeft, Sparkles, Send, ExternalLink, RefreshCw } from 'lucide-react';
+import { Bot, Mail, CornerDownLeft, Sparkles, Send, ExternalLink, RefreshCw } from 'lucide-react';
 import { CONTACT_INFO } from '../data/portfolioData';
 import { GithubIcon, LinkedinIcon } from './SocialIcons';
 import { soundFx } from '../utils/sound';
@@ -28,10 +28,9 @@ export const ContactTerminal: React.FC = () => {
 
 I can help you explore Naitik's portfolio:
 • Projects & technical comparisons
-• Listed skills & technologies
 • Current B.Tech (AI/ML) studies
 • Achievements & experiences
-• Resume & direct contact channels
+• Direct contact channels
 
 Ask me any natural question below.`,
       source: 'local',
@@ -46,7 +45,7 @@ Ask me any natural question below.`,
     'Who is Naitik?',
     'Why should I hire Naitik?',
     'Show me his projects',
-    'Compare Shiftly and ',
+    'Tell me about Tree Plantation',
     'Based on his current portfolio, what project should he build next?',
     'Which project uses Supabase?',
   ];
@@ -150,11 +149,6 @@ Ask me any natural question below.`,
       window.open(action.url || CONTACT_INFO.github, '_blank', 'noopener,noreferrer');
     } else if (action.actionType === 'external') {
       window.open(action.url, '_blank', 'noopener,noreferrer');
-    } else if (action.actionType === 'resume') {
-      const link = document.createElement('a');
-      link.href = action.url || '/Naitik_Goyal_Resume.pdf';
-      link.download = 'Naitik_Goyal_Resume.pdf';
-      link.click();
     }
   };
 
@@ -204,7 +198,7 @@ Ask me any natural question below.`,
 
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
         
-        {/* Left Column: Direct Communication Channels & Resume Card */}
+        {/* Left Column: Direct Communication Channels */}
         <div className="lg:col-span-5 space-y-6">
           <div className="cyber-glass p-6 sm:p-8 rounded-2xl border border-[#35E5FF]/30 space-y-6 shadow-xl relative cyber-border-corner">
             <div>
@@ -281,21 +275,6 @@ Ask me any natural question below.`,
                   [ CONNECT ON LINKEDIN ]
                 </a>
               </div>
-            </div>
-
-            {/* Resume Button */}
-            <div className="pt-2">
-              <a
-                href="/Naitik_Goyal_Resume.pdf"
-                download="Naitik_Goyal_Resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => soundFx.playClick()}
-                className="w-full py-3 rounded-xl bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] font-mono font-bold text-xs tracking-wider hover:shadow-[0_0_20px_#35E5FF] transition-all flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <Download className="w-4 h-4" />
-                <span>DOWNLOAD RESUME (PDF)</span>
-              </a>
             </div>
           </div>
         </div>
@@ -382,7 +361,6 @@ Ask me any natural question below.`,
                             >
                               <span>[ {act.label} ]</span>
                               {act.actionType === 'email' && <Send className="w-3 h-3" />}
-                              {act.actionType === 'resume' && <Download className="w-3 h-3" />}
                               {(act.actionType === 'github' || act.actionType === 'linkedin' || act.actionType === 'external') && (
                                 <ExternalLink className="w-3 h-3" />
                               )}

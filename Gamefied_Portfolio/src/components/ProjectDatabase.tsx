@@ -258,9 +258,7 @@ export const ProjectDatabase: React.FC = () => {
                   >
                     <ExternalLink className="w-4 h-4" />
                     <span>
-                      {selectedProject.id === 'revora' || selectedProject.id === 'shiftly'
-                        ? '▶ VIEW LIVE PROJECT'
-                        : selectedProject.id === 'tree-plantation'
+                      {selectedProject.id === 'tree-plantation'
                         ? '▶ LAUNCH PROJECT'
                         : selectedProject.id === 'expense-tracker'
                         ? '▶ EXPLORE APPLICATION'
@@ -281,7 +279,7 @@ export const ProjectDatabase: React.FC = () => {
                   >
                     <GithubIcon className={`w-4 h-4 ${!selectedProject.liveUrl ? 'text-[#05070D]' : 'text-[#35E5FF]'}`} />
                     <span>
-                      &lt; &gt; {selectedProject.id === 'shiftly' ? 'VIEW SOURCE CODE' : selectedProject.id === 'revora' ? 'VIEW ON GITHUB' : 'VIEW SOURCE'}
+                      &lt; &gt; {selectedProject.id === 'expense-tracker' || selectedProject.id === 'goyal-traders' ? 'VIEW ON GITHUB' : 'VIEW SOURCE'}
                     </span>
                   </button>
                 )}

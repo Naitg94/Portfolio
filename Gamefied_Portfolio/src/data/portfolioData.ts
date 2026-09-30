@@ -120,30 +120,8 @@ export const SKILL_NODES: SkillNode[] = [
 
 export const PROJECTS: Project[] = [
   {
-    id: 'revora',
-    code: 'PROJECT 01',
-    name: 'REVORA',
-    category: 'AUTONOMOUS AI & REVENUE RECOVERY PLATFORM',
-    status: 'COMPLETED',
-    objective: 'Build an enterprise-grade autonomous AI revenue recovery and financial operations platform for detecting payment failures, automating policy-bounded recovery workflows, and maintaining auditable human approval for high-value actions.',
-    description: 'AI-powered revenue recovery and risk operations platform for detecting payment failures, prioritizing financial exposure, automating policy-bounded recovery workflows, and maintaining auditable human approval for high-value actions.',
-    highlights: [
-      '4-Level Policy Guardrails (Level 1 Autonomous to Level 4 Circuit Breakers)',
-      'Continuous Multilingual Voice Copilot ("Talk to REVORA" in English, Hindi & Hinglish)',
-      'AI Promise to Pay (P2P) Natural Language Commitment Tracking',
-      'Real-Time Recovery Events Feed & Multi-Source Gateway Ingestion',
-      'Human-in-the-Loop High-Exposure Approval Queue & Cryptographic Audit Trail',
-      'Interactive Risk & Recovery Analytics with accessible Recharts visualizations'
-    ],
-    technologies: ['Next.js', 'TypeScript', 'FastAPI', 'PostgreSQL/Supabase', 'React Query', 'Tailwind CSS', 'Recharts', 'JWT/RBAC', 'AI Risk Engine', 'Voice Copilot'],
-    liveUrl: 'https://revora-fawn.vercel.app/',
-    githubUrl: 'https://github.com/NaitG94/Revora',
-    themeColor: '#35E5FF',
-    accentBg: 'from-cyan-950/40 via-blue-950/20 to-slate-950'
-  },
-  {
     id: 'tree-plantation',
-    code: 'PROJECT 02',
+    code: 'PROJECT 01',
     name: 'TREE PLANTATION',
     category: 'FULL-STACK WEB APPLICATION',
     status: 'COMPLETED',
@@ -163,7 +141,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'expense-tracker',
-    code: 'PROJECT 03',
+    code: 'PROJECT 02',
     name: 'EXPENSE TRACKER',
     category: 'PERSONAL FINANCE APPLICATION',
     status: 'COMPLETED',
@@ -184,7 +162,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: 'goyal-traders',
-    code: 'PROJECT 04',
+    code: 'PROJECT 03',
     name: 'GOYAL TRADERS',
     category: 'BUSINESS WEBSITE',
     status: 'COMPLETED',
@@ -201,27 +179,6 @@ export const PROJECTS: Project[] = [
     githubUrl: 'https://github.com/Naitg94/Goyal-Traders-2.git',
     themeColor: '#8D7BFF',
     accentBg: 'from-violet-950/40 via-purple-950/20 to-slate-950'
-  },
-  {
-    id: 'shiftly',
-    code: 'PROJECT 05',
-    name: 'SHIFTLY',
-    category: 'COMMUNICATION INTELLIGENCE PLATFORM',
-    status: 'COMPLETED',
-    objective: 'Build an AI-powered communication intelligence platform designed to turn multi-channel project messages and transcripts into clear, actionable information.',
-    description: 'An AI-powered communication intelligence layer that analyzes long project conversations, extracts critical action points, and maintains structured project memory.',
-    highlights: [
-      'Communication Intelligence Layer ("Find what matters")',
-      'Transforms lengthy conversations into clear, actionable information',
-      'Analyze Communication & Project Memory modules',
-      'Interactive conversation analysis with paste & file upload capabilities',
-      'Responsive modern interface built with Next.js & Tailwind CSS'
-    ],
-    technologies: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'AI Intelligence', 'Vercel'],
-    liveUrl: 'https://shiftly-woad.vercel.app',
-    githubUrl: 'https://github.com/Naitg94/Shiftly',
-    themeColor: '#35E5FF',
-    accentBg: 'from-blue-950/40 via-cyan-950/20 to-slate-950'
   }
 ];
 

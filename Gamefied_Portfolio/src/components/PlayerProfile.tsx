@@ -1,8 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { UserCheck, MapPin, Cpu, Activity, Download, Shield } from 'lucide-react';
+import { UserCheck, MapPin, Cpu, Activity, Shield } from 'lucide-react';
 import { PLAYER_PROFILE } from '../data/portfolioData';
-import { soundFx } from '../utils/sound';
 
 export const PlayerProfile: React.FC = () => {
   return (
@@ -129,24 +128,6 @@ export const PlayerProfile: React.FC = () => {
                 {PLAYER_PROFILE.currentPath}
               </div>
             </div>
-          </div>
-
-          {/* Action: Download Resume Button */}
-          <div className="pt-4 border-t border-[#35E5FF]/20 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
-            <span className="text-xs text-slate-400">
-              Official Verified Resume Document Available
-            </span>
-            <a
-              href="/Naitik_Goyal_Resume.pdf"
-              download="Naitik_Goyal_Resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => soundFx.playClick()}
-              className="w-full sm:w-auto px-6 py-2.5 rounded-lg bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] font-bold text-xs tracking-wider hover:shadow-[0_0_20px_#35E5FF] transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <Download className="w-4 h-4" />
-              <span>DOWNLOAD RESUME (PDF)</span>
-            </a>
           </div>
         </motion.div>
 
