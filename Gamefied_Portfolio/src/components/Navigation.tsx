@@ -119,7 +119,7 @@ export const Navigation: React.FC<NavigationProps> = ({
         <div className="fixed inset-0 z-30 bg-[#05070D]/95 backdrop-blur-xl md:hidden pt-20 px-6 pb-8 flex flex-col justify-between font-mono">
           <div className="space-y-3">
             <div className="text-xs text-slate-400 border-b border-[#35E5FF]/20 pb-2 mb-4">
-              SYSTEM NAVIGATION MENU
+              NAVIGATION
             </div>
             {navItems.map((item) => {
               const isActive = activeSection === item.id;

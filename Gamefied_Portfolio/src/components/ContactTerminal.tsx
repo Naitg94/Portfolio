@@ -24,7 +24,7 @@ export const ContactTerminal: React.FC = () => {
     {
       id: 'welcome-1',
       sender: 'assistant',
-      text: `NAITIK.OS AI ASSISTANT ONLINE
+      text: `NAITIK.OS AI ASSISTANT
 
 I can help you explore Naitik's portfolio:
 • Projects & technical comparisons

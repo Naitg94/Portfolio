@@ -20,16 +20,15 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-[radial-gradient(circle,rgba(53,229,255,0.12)_0%,rgba(141,123,255,0.05)_50%,transparent_70%)] pointer-events-none rounded-full blur-3xl" />
 
       <div className="max-w-4xl mx-auto text-center z-10 space-y-6">
-        {/* System Status Pill */}
+        {/* Availability Indicator */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full cyber-glass border border-[#35E5FF]/40 text-xs font-mono text-[#35E5FF] shadow-[0_0_15px_rgba(53,229,255,0.2)]"
         >
-          <span className="w-2 h-2 rounded-full bg-[#35E5FF] animate-pulse" />
-          <span className="font-semibold tracking-wider">SYSTEM STATUS: ONLINE</span>
-          <Sparkles className="w-3.5 h-3.5 ml-1 text-[#8D7BFF]" />
+          <Sparkles className="w-3.5 h-3.5 text-[#8D7BFF]" />
+          <span className="font-semibold tracking-wider">AVAILABLE FOR OPPORTUNITIES</span>
         </motion.div>
 
         {/* Main Name Header */}
@@ -82,7 +81,7 @@ export const Hero: React.FC<HeroProps> = ({ onNavigate }) => {
             className="w-full sm:w-auto px-8 py-3.5 rounded-lg bg-gradient-to-r from-[#35E5FF] to-[#4DA3FF] text-[#05070D] font-bold text-sm tracking-wider hover:shadow-[0_0_25px_rgba(53,229,255,0.5)] transition-all transform hover:scale-105 active:scale-95 flex items-center justify-center gap-2 cursor-pointer"
           >
             <Layers3 className="w-4 h-4" />
-            <span>EXPLORE PROJECTS</span>
+            <span>VIEW PROJECTS</span>
           </button>
 
           <button

@@ -19,15 +19,10 @@ export const Footer: React.FC = () => {
           <div className="flex items-center justify-center md:justify-start gap-2 text-base font-bold text-white font-heading">
             <Cpu className="w-5 h-5 text-[#35E5FF]" />
             <span>NAITIK.OS</span>
-            <span className="text-xs text-slate-500 font-mono font-normal">v2.6.0</span>
           </div>
-          <p className="text-slate-300">
-            SYSTEM SESSION COMPLETE // THANKS FOR EXPLORING.
+          <p className="text-slate-400">
+            Crafted with curiosity. Built to last.
           </p>
-          <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-bold">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-            <span>STATUS: STILL BUILDING.</span>
-          </div>
         </div>
 
         {/* Social Links & Copyright */}

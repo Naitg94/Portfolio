@@ -64,10 +64,10 @@ export const AchievementVault: React.FC = () => {
         <div className="w-1.5 h-8 bg-[#35E5FF] rounded-full shadow-[0_0_10px_#35E5FF]" />
         <div>
           <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-wider flex items-center gap-3">
-            <span>ACHIEVEMENT VAULT</span>
+            <span>ACHIEVEMENTS</span>
             <Trophy className="w-5 h-5 text-[#35E5FF]" />
           </h2>
-          <p className="text-xs font-mono text-slate-400">System Milestones & Collectible Badges</p>
+          <p className="text-xs font-mono text-slate-400">Milestones, Certifications &amp; Professional Experience</p>
         </div>
       </div>
 
@@ -132,9 +132,9 @@ export const AchievementVault: React.FC = () => {
             <div className="mt-6 pt-3 border-t border-[#35E5FF]/10 flex items-center justify-between text-[11px] font-mono text-slate-400">
               <span className="group-hover:text-[#35E5FF] transition-colors flex items-center gap-1">
                 <Sparkles className="w-3 h-3 text-[#35E5FF]" />
-                CLICK TO INSPECT BADGE
+                VIEW CREDENTIAL
               </span>
-              <span className="text-slate-500">#UNLOCK_0{idx + 1}</span>
+              <span className="text-slate-500">#{String(idx + 1).padStart(2, '0')}</span>
             </div>
           </motion.div>
         ))}

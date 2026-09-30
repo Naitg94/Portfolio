@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Layers3, ExternalLink, CheckCircle2, ChevronRight, Layers, Sparkles, Trophy } from 'lucide-react';
+import { Layers3, ExternalLink, ChevronRight, Layers, Sparkles } from 'lucide-react';
 import { PROJECTS } from '../data/portfolioData';
 import type { Project } from '../data/portfolioData';
 import { GithubIcon } from './SocialIcons';
@@ -9,47 +9,11 @@ import { soundFx } from '../utils/sound';
 export const ProjectDatabase: React.FC = () => {
   const [selectedProjectId, setSelectedProjectId] = useState<string>(PROJECTS[0].id);
 
-  // Gamification: LocalStorage-persisted explored projects tracking across all 4 projects
-  const [exploredProjects, setExploredProjects] = useState<string[]>(() => {
-    try {
-      const saved = localStorage.getItem('naitik_os_explored_projects');
-      const parsed = saved ? JSON.parse(saved) : [PROJECTS[0].id];
-      // Ensure all valid stored IDs exist in current PROJECTS
-      return Array.isArray(parsed) ? parsed.filter((id) => PROJECTS.some((p) => p.id === id)) : [PROJECTS[0].id];
-    } catch {
-      return [PROJECTS[0].id];
-    }
-  });
-
   const selectedProject = PROJECTS.find((p) => p.id === selectedProjectId) || PROJECTS[0];
-
-  useEffect(() => {
-    // Automatically mark the currently viewed project as explored
-    if (!exploredProjects.includes(selectedProjectId)) {
-      const updated = [...exploredProjects, selectedProjectId];
-      setExploredProjects(updated);
-      try {
-        localStorage.setItem('naitik_os_explored_projects', JSON.stringify(updated));
-      } catch {}
-    }
-  }, [selectedProjectId, exploredProjects]);
 
   const handleSelectProject = (project: Project) => {
     soundFx.playClick();
     setSelectedProjectId(project.id);
-
-    if (!exploredProjects.includes(project.id)) {
-      const updated = [...exploredProjects, project.id];
-      setExploredProjects(updated);
-      try {
-        localStorage.setItem('naitik_os_explored_projects', JSON.stringify(updated));
-      } catch {}
-
-      // If all 4 projects are now explored, trigger unlock sound
-      if (updated.length === PROJECTS.length) {
-        soundFx.playUnlock();
-      }
-    }
   };
 
   const handleLaunch = (url: string) => {
@@ -57,33 +21,17 @@ export const ProjectDatabase: React.FC = () => {
     window.open(url, '_blank', 'noopener,noreferrer');
   };
 
-  const isAllExplored = exploredProjects.length === PROJECTS.length;
-
   return (
     <section id="projects" className="py-20 px-4 relative z-10 max-w-6xl mx-auto">
-      {/* Section Title & Exploration HUD */}
-      <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
-        <div className="flex items-center gap-3">
-          <div className="w-1.5 h-8 bg-[#35E5FF] rounded-full shadow-[0_0_10px_#35E5FF]" />
-          <div>
-            <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-wider flex items-center gap-3">
-              <span>PROJECT DATABASE</span>
-              <Layers3 className="w-5 h-5 text-[#35E5FF]" />
-            </h2>
-            <p className="text-xs font-mono text-slate-400">Interactive Project Console & Verified Deployments</p>
-          </div>
-        </div>
-
-        {/* Gamification Exploration Badge */}
-        <div className="px-3.5 py-1.5 rounded-full cyber-glass border border-[#35E5FF]/30 text-xs font-mono text-[#35E5FF] flex items-center gap-2 shadow-[0_0_15px_rgba(53,229,255,0.15)]">
-          <span className={`w-2 h-2 rounded-full ${isAllExplored ? 'bg-emerald-400' : 'bg-[#35E5FF] animate-pulse'}`} />
-          <span>{exploredProjects.length}/{PROJECTS.length} PROJECTS EXPLORED</span>
-          {isAllExplored && (
-            <span className="text-emerald-400 font-bold ml-1 flex items-center gap-1">
-              <Trophy className="w-3.5 h-3.5" />
-              <span>[PROJECT ARCHIVIST]</span>
-            </span>
-          )}
+      {/* Section Title */}
+      <div className="flex items-center gap-4 mb-10">
+        <div className="w-1.5 h-8 bg-[#35E5FF] rounded-full shadow-[0_0_10px_#35E5FF]" />
+        <div>
+          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-wider flex items-center gap-3">
+            <span>PROJECT DATABASE</span>
+            <Layers3 className="w-5 h-5 text-[#35E5FF]" />
+          </h2>
+          <p className="text-xs font-mono text-slate-400">Selected Work &amp; Deployed Applications</p>
         </div>
       </div>
 
@@ -92,19 +40,13 @@ export const ProjectDatabase: React.FC = () => {
         
         {/* Left Column: Project Selection Console */}
         <div className="lg:col-span-4 space-y-4">
-          <div className="text-xs font-mono text-slate-400 px-1 uppercase tracking-widest flex items-center justify-between">
-            <div className="flex items-center gap-1.5">
-              <Layers className="w-3.5 h-3.5 text-[#35E5FF]" />
-              <span>PROJECT INDEX</span>
-            </div>
-            <span className="text-[10px] text-slate-500 font-mono">
-              {exploredProjects.length}/{PROJECTS.length} VISITED
-            </span>
+          <div className="text-xs font-mono text-slate-400 px-1 uppercase tracking-widest flex items-center gap-1.5">
+            <Layers className="w-3.5 h-3.5 text-[#35E5FF]" />
+            <span>PROJECT INDEX</span>
           </div>
 
           {PROJECTS.map((project) => {
             const isSelected = project.id === selectedProjectId;
-            const isExplored = exploredProjects.includes(project.id);
 
             return (
               <motion.button
@@ -125,10 +67,6 @@ export const ProjectDatabase: React.FC = () => {
 
                 <div className="flex items-center justify-between text-xs text-slate-400 mb-1">
                   <span className="text-[#35E5FF] font-bold">{project.code}</span>
-                  <span className={`flex items-center gap-1 ${isExplored ? 'text-emerald-400 font-semibold' : 'text-slate-500'}`}>
-                    <CheckCircle2 className="w-3 h-3" />
-                    <span>{isExplored ? 'EXPLORED' : project.status}</span>
-                  </span>
                 </div>
 
                 <div className="text-base font-bold font-heading text-white tracking-wide mb-1">
@@ -164,13 +102,6 @@ export const ProjectDatabase: React.FC = () => {
                     {selectedProject.name}
                   </h3>
                 </div>
-
-                {selectedProject.status && (
-                  <div className="flex items-center gap-2 px-3 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold">
-                    <CheckCircle2 className="w-4 h-4" />
-                    <span>STATUS: {selectedProject.status}</span>
-                  </div>
-                )}
               </div>
 
               {/* Project Objective */}
@@ -259,10 +190,10 @@ export const ProjectDatabase: React.FC = () => {
                     <ExternalLink className="w-4 h-4" />
                     <span>
                       {selectedProject.id === 'tree-plantation'
-                        ? '▶ LAUNCH PROJECT'
+                        ? 'â–¶ LAUNCH PROJECT'
                         : selectedProject.id === 'expense-tracker'
-                        ? '▶ EXPLORE APPLICATION'
-                        : '▶ VISIT PROJECT'}
+                        ? 'â–¶ EXPLORE APPLICATION'
+                        : 'â–¶ VISIT PROJECT'}
                     </span>
                   </button>
                 )}

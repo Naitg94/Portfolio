@@ -10,13 +10,10 @@ export const PlayerProfile: React.FC = () => {
       <div className="flex items-center gap-3 mb-12">
         <div className="w-1.5 h-8 bg-[#35E5FF] rounded-full shadow-[0_0_10px_#35E5FF]" />
         <div>
-          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-wider flex items-center gap-3">
-            <span>PLAYER PROFILE</span>
-            <span className="text-xs font-mono text-[#35E5FF] px-2.5 py-0.5 rounded border border-[#35E5FF]/30 bg-[#35E5FF]/10">
-              HUD ID: #001
-            </span>
+          <h2 className="text-2xl sm:text-3xl font-bold font-heading text-white tracking-wider">
+            PROFILE
           </h2>
-          <p className="text-xs font-mono text-slate-400">Core Developer Identity & Parameters</p>
+          <p className="text-xs font-mono text-slate-400">Developer · Builder · Problem Solver</p>
         </div>
       </div>
 
@@ -54,9 +51,8 @@ export const PlayerProfile: React.FC = () => {
 
           <div className="text-center space-y-1 font-mono z-10 mt-2">
             <div className="text-xs text-[#35E5FF] font-semibold tracking-widest uppercase">
-              AI Holographic Identity Matrix
+              AI / ML Developer
             </div>
-            <div className="text-xs text-slate-400">STATUS: ACTIVE // 100% OPERATIONAL</div>
           </div>
         </motion.div>
 
@@ -72,12 +68,8 @@ export const PlayerProfile: React.FC = () => {
           <div className="flex items-center justify-between border-b border-[#35E5FF]/20 pb-4">
             <div className="flex items-center gap-2 text-sm font-mono font-bold text-white">
               <Shield className="w-4 h-4 text-[#35E5FF]" />
-              <span>PLAYER CHARACTER DATA</span>
+              <span>DEVELOPER PROFILE</span>
             </div>
-            <span className="text-xs font-mono text-emerald-400 flex items-center gap-1.5">
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
-              ONLINE
-            </span>
           </div>
 
           {/* Data List */}
@@ -115,7 +107,7 @@ export const PlayerProfile: React.FC = () => {
             <div className="space-y-1">
               <div className="text-xs text-slate-400 flex items-center gap-1.5">
                 <Activity className="w-3.5 h-3.5 text-emerald-400" />
-                <span>STATUS</span>
+                <span>CURRENT FOCUS</span>
               </div>
               <div className="text-sm font-semibold text-emerald-300">
                 {PLAYER_PROFILE.status}
